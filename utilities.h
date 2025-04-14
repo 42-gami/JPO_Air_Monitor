@@ -6,6 +6,8 @@
 #include <vector>
 #include <optional>
 #include <fstream>
+#include <filesystem>
+#include <sstream>
 
 #pragma once
 
@@ -66,9 +68,10 @@ public:
     double gegrLat;
     double gegrLon;
     vector<Sensor> mySensors;
+    string rawData;
     
-    Station(string id = "undefined", string stationName = "undefined", double gegrLat = 0, double gegrLon = 0, vector<Sensor> mySensors = {}) 
-    : id(id), stationName(stationName), gegrLat(gegrLat), gegrLon(gegrLon), mySensors(mySensors){}
+    Station(string id = "undefined", string stationName = "undefined", double gegrLat = 0, double gegrLon = 0, vector<Sensor> mySensors = {}, string rawData = "") 
+    : id(id), stationName(stationName), gegrLat(gegrLat), gegrLon(gegrLon), mySensors(mySensors), rawData(rawData){}
 
         
     bool loadParams(string desiredId);
@@ -147,28 +150,42 @@ bool updateStationList(string filePath = "saves/stations.json") {
     }
     return false;
 }
-/*
+
 /// @brief Same as stationLookup but uses a json savefile instead of an API call
 /// @param datafile 
 optional<vector<Station>> stationLookupOffline(string datafile = "saves/stations.json") {
         vector<Station> stationList;
-        if (parseJsonResponse(api_reply, root)) {
-            for (Json::Value::const_iterator it = root.begin(); it != root.end(); it++)
-            {
-                Json::Value stationData = *it;
-                string currentId = stationData["id"].asString();
-                string currentStationName = stationData["stationName"].asString();
-                double currentGegrLat = stod(stationData["gegrLat"].asString());
-                double currentGegrLon = stod(stationData["gegrLon"].asString());
-
-                Station currentStation = Station(currentId, currentStationName, currentGegrLat, currentGegrLon);
-                stationList.push_back(currentStation);
+        if (std::filesystem::exists(datafile)) {
+            ifstream file(datafile);
+            if (!file) {
+                return false;
             }
-            return stationList;
+            stringstream buffer;
+            buffer << file.rdbuf();
+            string dataString = buffer.str();
+
+            if (!dataString.empty()) {
+                Json::Value root;
+                if (parseJsonResponse(dataString, root)) {
+                    rawData = dataString;
+                    for (Json::Value::const_iterator it = root.begin(); it != root.end(); it++)
+                    {
+                        Json::Value stationData = *it;
+                        string currentId = stationData["id"].asString();
+                        string currentStationName = stationData["stationName"].asString();
+                        double currentGegrLat = stod(stationData["gegrLat"].asString());
+                        double currentGegrLon = stod(stationData["gegrLon"].asString());
+        
+                        Station currentStation = Station(currentId, currentStationName, currentGegrLat, currentGegrLon);
+                        stationList.push_back(currentStation);
+                    }
+                    return stationList;
+                }
+            }
         }
     return nullopt; //false
 }
-*/
+
 
 /// @brief This function is used to load up the list of sensors into a Station object. It will clear the current sensor list. Must be used on Stations acquired through stationLookup()
 /// @return true if successful, false if the API request or parsing fails.
@@ -177,6 +194,7 @@ bool Station::loadSensors() {
     string api_url = "https://api.gios.gov.pl/pjp-api/rest/station/sensors/" + id;
     string api_reply;
     if (performCurlRequest(api_url, api_reply)) {
+        rawData = api_reply;
         Json::Value root;
         if (parseJsonResponse(api_reply, root)) {
             for (Json::Value::const_iterator it = root.begin(); it != root.end(); it++)
@@ -193,20 +211,21 @@ bool Station::loadSensors() {
     return false;
 }
 
-bool Station::updateSensorList(string pathToFile = "saves/sensors/") {
-    string api_url = "https://api.gios.gov.pl/pjp-api/rest/station/sensors/" + id;
-    string api_reply;
 
+/// @brief Function used to create or update a savefile for the list of sensors of a given station.
+/// @param pathToFile 
+/// @return true if successful
+bool Station::updateSensorList(string pathToFile = "saves/sensors/") {
     string filePath = pathToFile + "s" + id + ".json";
 
-    if (performCurlRequest(api_url, api_reply)) {
+    if (rawData != "") {
         ofstream file(filePath);
 
         if (!file) {
             return false;
         }
         
-        file << api_reply;
+        file << rawData;
         file.close();
         return true;
     }
@@ -214,7 +233,33 @@ bool Station::updateSensorList(string pathToFile = "saves/sensors/") {
 }
 
 /// @brief Same as load Sensors but from a json savefile, if it exists.
-bool Station::loadSensorsOffline() {
+bool Station::loadSensorsOffline(string pathToFile = "saves/sensors/") {
+    string filePath = pathToFile + "s" + id +".json";
+    if (std::filesystem::exists(filePath)) {
+        ifstream file(filePath);
+        if (!file) {
+            return false;
+        }
+        stringstream buffer;
+        buffer << file.rdbuf();
+        string dataString = buffer.str();
+        if (dataString != "") {
+            mySensors.clear();
+            Json::Value root;
+            if (parseJsonResponse(dataString, root)) {
+                for (Json::Value::const_iterator it = root.begin(); it != root.end(); it++)
+                {
+                    Json::Value sensorData = *it;
+                    string currentId = sensorData["id"].asString();
+                    string currentParamName = sensorData["param"]["paramName"].asString();
+                    Sensor currentSensor = Sensor(currentId, currentParamName);
+                    mySensors.push_back(currentSensor);
+                }
+
+            }
+            return true;
+        }
+    }
     return false;
 } 
 
