@@ -5,6 +5,8 @@
 #include "implot.h"
 #include "implot_internal.h"
 
+#pragma once
+
 #include <stdio.h>
 #define GL_SILENCE_DEPRECATION
 #if defined(IMGUI_IMPL_OPENGL_ES2)

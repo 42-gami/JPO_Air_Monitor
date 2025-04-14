@@ -2,18 +2,7 @@
 #include <algorithm>
 #include <numeric>
 
-/// @brief Function used to get a vector of station names to display in ImGui.
-std::vector<const char*> generateListOfNames(std::vector<Station>& stationList) {
-    std::vector<std::string> stationNamesStr;
-    std::vector<const char*> stationNamesCStr;
-
-    for (const auto& station : stationList) {
-        stationNamesStr.push_back(station.stationName);
-        stationNamesCStr.push_back(stationNamesStr.back().c_str());
-    }
-
-    return stationNamesCStr;
-}
+#include "app.h"
 
 template <typename T>
 T min(const std::vector<T>& vec) {
@@ -31,3 +20,8 @@ T average(const std::vector<T>& vec) {
     return sum / static_cast<T>(vec.size());
 }
 
+void showStationSaveButton() {
+    if (ImGui::Button("Save list of stations for offline use.")) {
+        updateStationList();
+    }
+}

@@ -74,6 +74,9 @@ public:
     bool loadParams(string desiredId);
 
     bool loadSensors();
+
+    bool updateSensorList(string pathToFile);
+    bool loadSensorsOffline();
 };
 
 
@@ -87,6 +90,8 @@ public:
     Sensor(string id = "undefined", string paramName = "undefined", vector<Reading> latestReading = {}) : id(id), paramName(paramName), latestReading(latestReading) {};
 
     bool getReading();  
+    
+    //bool getReadingOffline();
 };
     
 class Reading {
@@ -188,6 +193,30 @@ bool Station::loadSensors() {
     return false;
 }
 
+bool Station::updateSensorList(string pathToFile = "saves/sensors/") {
+    string api_url = "https://api.gios.gov.pl/pjp-api/rest/station/sensors/" + id;
+    string api_reply;
+
+    string filePath = pathToFile + "s" + id + ".json";
+
+    if (performCurlRequest(api_url, api_reply)) {
+        ofstream file(filePath);
+
+        if (!file) {
+            return false;
+        }
+        
+        file << api_reply;
+        file.close();
+        return true;
+    }
+    return false;
+}
+
+/// @brief Same as load Sensors but from a json savefile, if it exists.
+bool Station::loadSensorsOffline() {
+    return false;
+} 
 
 /// @brief This function loads up the latestReading attribute of the Sensor object with date - value pairs.
 /// @return true if successful, false if API request or parsing fails.

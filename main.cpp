@@ -72,7 +72,7 @@ public:
             ImGuiWindowFlags_NoMove |
             ImGuiWindowFlags_NoBringToFrontOnFocus);
     
-
+        
         if (gotStationList) {
             ImGui::Text("Choose a station to monitor.");
 
@@ -83,7 +83,8 @@ public:
                 sensorSelected = false;
                 readingLoaded = false;
             }
-
+            showStationSaveButton();
+            ImGui::Separator();
             if (selectedStationIndex != -1) {
                 ImGui::Text(("Selected station: " + selectedStation.stationName).c_str());
                 if (ImGui::Button("Load sensors for selected station")) {
@@ -91,6 +92,7 @@ public:
                         loadedSensors = true;
                         sensorSelected = false;
                         readingLoaded = false;
+                        selectedSensorIndex = -1;
 
                         sensorNamesCStr.clear();
                         for (const auto& sensor : selectedStation.mySensors) {
@@ -114,6 +116,10 @@ public:
                             sensorSelected = true;
                         }
                         
+                        if (ImGui::Button("Save Sensor List to file")) {
+                            selectedStation.updateSensorList();
+                        }
+
                         if (sensorSelected) {
                             if (ImGui::Button("Get reading from sensor.")) {
                                 if (selectedSensor.getReading()) {
