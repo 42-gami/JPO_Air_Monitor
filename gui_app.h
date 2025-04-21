@@ -58,7 +58,6 @@ public:
     void StartUp() {
         if (performCurlRequest(stationsUrl, stationListJson)) {
             online = true;
-            currentStationList = StationList(stationListJson);
         }  
         else {
             if (loadStationsOffline(stationListJson)) {
@@ -70,6 +69,8 @@ public:
                 return;
             }
         }
+        currentStationList = StationList(stationListJson);
+        appState = AppState::STATION_MENU;
     }
 
     void Update() {
@@ -84,6 +85,11 @@ public:
             ImGuiWindowFlags_NoMove |
             ImGuiWindowFlags_NoBringToFrontOnFocus);
 
+        
+        if (ImGui::Button("Go Online")) {
+            StartUp();
+        }
+        
         switch(appState) {
             case AppState::STATION_MENU: {
                 showStationMenu();
@@ -173,16 +179,24 @@ void myApp::showSensorMenu() { //consider checking if currentSensorList is actua
 }
 
 void myApp::showReadingScreen() {
-    ImPlot::BeginPlot("Reading from sensor");
-    ImPlot::PlotLine(currentReading.paramName.c_str(), currentReading.indices.data(), currentReading.values.data(), currentReading.indices.size());
-    ImPlot::EndPlot();
-
+    if (ImPlot::BeginPlot("Reading from sensor")) {
+        ImPlot::SetupAxes("Time", currentReading.paramName.c_str());
+        
+        ImPlot::SetupAxisScale(ImAxis_X1, ImPlotScale_Time);
+        ImPlot::SetupAxisFormat(ImAxis_X1, "%H:%M\n%d-%m");
+    
+        ImPlot::PlotLine(currentReading.paramName.c_str(),
+                         currentReading.dateTimestamps.data(),
+                         currentReading.values.data(),
+                         static_cast<int>(currentReading.values.size()));
+    
+        ImPlot::EndPlot();
+    }
+    
     if (online) {
-        //show save button
-
-        //if button pressed
-        //sensorList.save()
-        //station
+        if (ImGui::Button("Save")) {
+            ImGui::Text("(¬.¬)");
+        }
     }
 }
 

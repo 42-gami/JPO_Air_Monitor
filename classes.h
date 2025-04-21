@@ -1,7 +1,11 @@
 #include <string>
 #include <vector>
+#include <ctime>
+#include <sstream>
+#include <iomanip>
 
 #include <json/json.h>
+
 
 using namespace std;
 
@@ -33,6 +37,17 @@ using namespace std;
 //can calculate some stats based on y vals
 //save function saves json value of readings to file, appends correctly
 
+/// @brief helper function for converting date strings into unix timestamps
+double convertDateToTimestamp(const std::string& datetime) {
+    std::tm tm = {};
+    std::istringstream ss(datetime);
+    ss >> std::get_time(&tm, "%Y-%m-%d %H:%M:%S");
+    if (ss.fail()) {
+        return -1;
+    }
+    time_t time = std::mktime(&tm);
+    return static_cast<double>(time);
+}
 
 class StationList {
 public:
@@ -126,7 +141,8 @@ public:
     vector<double> values;
     vector<double> indices;
     vector<string> dates;
-
+    vector<double> dateTimestamps;
+    vector<const char*> c_strNames;
 
     double average;
     double min;
@@ -139,7 +155,8 @@ public:
 
     Reading(string jsonString) {
         if (loadData(jsonString)) {
-            
+            prepareCStrNames();
+            prepareTimestamps();
         }
     }
 
@@ -162,5 +179,20 @@ public:
             return true;
         }
         return false;
+    }
+
+    void prepareCStrNames() {
+        c_strNames.clear();
+        for (const auto& date : dates) {
+            c_strNames.push_back(date.c_str());
+        }
+    }
+
+    void prepareTimestamps() {
+        dateTimestamps.clear();
+        for (const std::string& dateStr : dates) {
+            double ts = convertDateToTimestamp(dateStr);
+            dateTimestamps.push_back(ts);
+        }
     }
 };
