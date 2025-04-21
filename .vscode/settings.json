@@ -55,5 +55,6 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/hachikuji/Documents/project_jpo/subprojects/glfw"
 }
