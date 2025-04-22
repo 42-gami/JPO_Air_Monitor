@@ -106,8 +106,26 @@ public:
             ImGuiWindowFlags_NoBringToFrontOnFocus);
 
         
-        if (ImGui::Button("Go Online")) {
-            StartUp();
+        if (!online) {
+            if (ImGui::Button("Go Online")) {
+                StartUp();
+            }
+        }
+        else {
+            if (ImGui::Button("Offline Mode")) {
+                string stationFilePath = projectRoot + "/saves/stations.json";
+    
+                if (std::filesystem::exists(stationFilePath)) {
+                    stationListJson = readStringFromFile(stationFilePath);
+                    online = false;
+                }
+                else {
+                    appState = AppState::INVALID_STATE;
+                    return;
+                }
+            }
+            currentStationList = StationList(stationListJson);
+            appState = AppState::STATION_MENU;
         }
         
         switch(appState) {

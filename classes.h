@@ -179,7 +179,6 @@ public:
     bool saveData(string projectRoot) {
         string filePath = projectRoot + "/saves/sensors/s" + stationId + ".json";
         
-        // Check if index is valid
         if (index < 0 || index >= jsonData.size()) {
             return false;
         }
@@ -189,7 +188,6 @@ public:
             Json::Value existingSensors;
             
             if (parseJsonResponse(jsonFileContent, existingSensors)) {
-                // Check if sensor with this ID already exists in the file
                 bool sensorExists = false;
                 string currentId = jsonData[index]["id"].asString();
                 
@@ -201,10 +199,8 @@ public:
                 }
                 
                 if (!sensorExists) {
-                    // Append the current sensor data to existing sensors
                     existingSensors.append(jsonData[index]);
                     
-                    // Convert to string and write back to file
                     Json::StreamWriterBuilder writer;
                     string updatedJsonString = Json::writeString(writer, existingSensors);
                     writeToFile(filePath, updatedJsonString);
@@ -212,7 +208,6 @@ public:
                 
                 return true;
             } else {
-                // Parsing failed, create new file with just this sensor
                 Json::Value newSensors(Json::arrayValue);
                 newSensors.append(jsonData[index]);
                 
@@ -223,7 +218,6 @@ public:
                 return true;
             }
         } else {
-            // File doesn't exist, create it with just this sensor
             Json::Value newSensors(Json::arrayValue);
             newSensors.append(jsonData[index]);
             
