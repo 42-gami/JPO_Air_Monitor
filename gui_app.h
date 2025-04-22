@@ -38,6 +38,7 @@ public:
     
     /// latest error always stored in here
     const char* errorMessage = "No errors yet";
+    bool showError = false;
 
     ///Flag which determines whether json-formatted strings are acquired by API request or from file
     bool online = false;
@@ -86,6 +87,8 @@ public:
             }
             else {
                 appState = AppState::INVALID_STATE;
+                errorMessage = "Couldn't find station file!";
+                showError = true;
                 return;
             }
         }
@@ -118,14 +121,16 @@ public:
                 if (std::filesystem::exists(stationFilePath)) {
                     stationListJson = readStringFromFile(stationFilePath);
                     online = false;
+                    currentStationList = StationList(stationListJson);
+                    appState = AppState::STATION_MENU;
                 }
                 else {
                     appState = AppState::INVALID_STATE;
+                    errorMessage = "Couldn't find station file!";
+                    showError = true;
                     return;
                 }
             }
-            currentStationList = StationList(stationListJson);
-            appState = AppState::STATION_MENU;
         }
         
         switch(appState) {
@@ -156,12 +161,26 @@ public:
 
         ImGui::End();
 
+        if (showError) {
+            showErrorWindow();
+        }
+
         if (appState == AppState::READING_VIEW) {
             ImGui::Begin("Readings from sensor");
             showReadingScreen();
             ImGui::End();
         }
     }
+
+    void showErrorWindow() {
+        ImGui::Begin("Warning.");
+        ImGui::Text(errorMessage);
+        if (ImGui::Button("Ok.")) {
+            showError = false;
+            errorMessage = "No errors yet!";
+        }
+        ImGui::End();
+    };
 
     void showStationMenu();
     void showSensorMenu();
@@ -207,6 +226,8 @@ void myApp::showStationMenu() {
                 appState = AppState::SENSOR_MENU;
             }
             else {
+                errorMessage = "Couldn't request sensors from API! Going into offline mode...";
+                showError = true;
                 appState = AppState::INVALID_STATE;
             }
         }
@@ -240,11 +261,13 @@ void myApp::showSensorMenu() { //consider checking if currentSensorList is actua
                 appState = AppState::READING_VIEW;
             }
             else {
+                errorMessage = "Couldn't request readings from API! Going into Offline Mode...";
+                showError = true;
                 appState = AppState::INVALID_STATE;
             }
         }
         else {
-            string readingFilePath = projectRoot + "/saves/readings/r" + currentSensorList.ids[currentStationList.index] + ".json";
+            string readingFilePath = projectRoot + "/saves/readings/r" + currentSensorList.ids[currentSensorList.index] + ".json";
     
             if (std::filesystem::exists(readingFilePath)) {
                 readingJson = readStringFromFile(readingFilePath);
@@ -292,6 +315,8 @@ void myApp::showReadingScreen() {
             if (currentReading.saveData(projectRoot)) {
                 if (currentSensorList.saveData(projectRoot)) {
                     currentStationList.saveData(projectRoot);
+                    errorMessage = "Saved successfully!";
+                    showError = true;
                 }
             }
         }

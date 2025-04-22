@@ -34,5 +34,23 @@
 		"gegrLon" : "15.596347",
 		"id" : 10934,
 		"stationName" : "Ko\u0142obrzeg, ul. \u017b\u00f3\u0142kiewskiego"
+	},
+	{
+		"addressStreet" : "ul. Andrzejewskiego 23",
+		"city" : 
+		{
+			"commune" : 
+			{
+				"communeName" : "Szczecin",
+				"districtName" : "Szczecin",
+				"provinceName" : "ZACHODNIOPOMORSKIE"
+			},
+			"id" : 917,
+			"name" : "Szczecin"
+		},
+		"gegrLat" : "53.380975",
+		"gegrLon" : "14.663347",
+		"id" : 986,
+		"stationName" : "Szczecin, ul. Andrzejewskiego"
 	}
 ]
