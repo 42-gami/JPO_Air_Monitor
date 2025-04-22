@@ -28,6 +28,9 @@ static void glfw_error_callback(int error, const char* description)
     fprintf(stderr, "GLFW Error %d: %s\n", error, description);
 }
 
+
+/// @brief Class mainly used to house the boilerplate code for setting up ImGui. Uses OpenGl as a graphics API and GLFW for creating a window.
+/// @tparam Derived 
 template<typename Derived>
 class App {
 public:

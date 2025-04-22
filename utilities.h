@@ -13,7 +13,6 @@ namespace fs = std::filesystem;
 using namespace std;
 
 /// @brief Function specifying the format of the output of a Curl request
-/// @return 
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp) {
     ((string*)userp)->append((char*)contents, size * nmemb);
     return size * nmemb;
@@ -102,6 +101,9 @@ bool loadStationsOffline(string& response, string filePath = "") {
     return false;
 }
 
+
+/// @brief used for getting the root directory of the project for later use with std::filesystem. This version works on Linux.
+/// @return string of the absolute path to project root
 string getRootLinux() {
     char buffer[1024];
     ssize_t len = readlink("/proc/self/exe", buffer, sizeof(buffer) - 1);
@@ -118,6 +120,10 @@ string getRootLinux() {
     return rootPath.string();
 }
 
+
+/// @brief used to write string to file
+/// @param filePath absolute path to destination file
+/// @param content string to write
 void writeToFile(const std::string& filePath, const std::string& content) {
     std::ofstream outFile(filePath);
     if (outFile.is_open()) {
@@ -128,6 +134,8 @@ void writeToFile(const std::string& filePath, const std::string& content) {
     }
 }
 
+/// @brief writes contents of specified file to string
+/// @param filePath full absolute path to file
 std::string readStringFromFile(const std::string& filePath) {
     std::ifstream file(filePath);
     if (!file.is_open()) {

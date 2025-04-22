@@ -1,0 +1,187 @@
+\doxysection{utilities.\+h File Reference}
+\hypertarget{utilities_8h}{}\label{utilities_8h}\index{utilities.h@{utilities.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$curl/curl.\+h$>$}\newline
+{\ttfamily \#include $<$json/json.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{utilities_8h_aca9a64d478c64568f94626641c73bd30}{Write\+Callback}} (void \texorpdfstring{$\ast$}{*}contents, size\+\_\+t size, size\+\_\+t nmemb, void \texorpdfstring{$\ast$}{*}userp)
+\begin{DoxyCompactList}\small\item\em Function specifying the format of the output of a Curl request. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{perform\+Curl\+Request}} (const string \&url, string \&response)
+\begin{DoxyCompactList}\small\item\em This function is used for all Curl requests in the project. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parse\+Json\+Response}} (const string \&json\+Response, Json\+::\+Value \&parsed\+Root)
+\begin{DoxyCompactList}\small\item\em Function used for parsing all Json in the project. \end{DoxyCompactList}\item 
+optional$<$ vector$<$ string $>$ $>$ \mbox{\hyperlink{utilities_8h_aa6a4837e4a9477e03fed90329998c7e7}{generate\+Station\+List}} (const string \&json\+String)
+\begin{DoxyCompactList}\small\item\em Used to generate vector of station names, mainly to display in the GUI. The indexing order of the names is important for functionality. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{utilities_8h_a402c459c34da3447ff58de9627432197}{get\+Station\+Data\+String}} (string station\+List, int index)
+\begin{DoxyCompactList}\small\item\em Used for getting a Json-\/formatted string for a particular station from \doxylink{utilities_8h_aa6a4837e4a9477e03fed90329998c7e7}{generate\+Station\+List()} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utilities_8h_a687c8116f837493d0927f1ae71f6f54f}{load\+Stations\+Offline}} (string \&response, string file\+Path="{}"{})
+\begin{DoxyCompactList}\small\item\em Used to load list of stations from file instead of. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45}{get\+Root\+Linux}} ()
+\begin{DoxyCompactList}\small\item\em used for getting the root directory of the project for later use with std\+::filesystem. This version works on Linux. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utilities_8h_a43aa7b90193038a7bddec549313811ca}{write\+To\+File}} (const std\+::string \&file\+Path, const std\+::string \&content)
+\begin{DoxyCompactList}\small\item\em used to write string to file \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{utilities_8h_af6b2a1eb85ed995b2bd4369d8da9a5d7}{read\+String\+From\+File}} (const std\+::string \&file\+Path)
+\begin{DoxyCompactList}\small\item\em writes contents of specified file to string \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{utilities_8h_aa6a4837e4a9477e03fed90329998c7e7}\label{utilities_8h_aa6a4837e4a9477e03fed90329998c7e7} 
+\index{utilities.h@{utilities.h}!generateStationList@{generateStationList}}
+\index{generateStationList@{generateStationList}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{generateStationList()}{generateStationList()}}
+{\footnotesize\ttfamily optional$<$ vector$<$ string $>$ $>$ generate\+Station\+List (\begin{DoxyParamCaption}\item[{const string \&}]{json\+String }\end{DoxyParamCaption})}
+
+
+
+Used to generate vector of station names, mainly to display in the GUI. The indexing order of the names is important for functionality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+String} & string with Json formatting, ideally obtained by API request or read from file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+optional object thats a vector of names if function is successful or false if something fails 
+\end{DoxyReturn}
+\Hypertarget{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45}\label{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45} 
+\index{utilities.h@{utilities.h}!getRootLinux@{getRootLinux}}
+\index{getRootLinux@{getRootLinux}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{getRootLinux()}{getRootLinux()}}
+{\footnotesize\ttfamily string get\+Root\+Linux (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+used for getting the root directory of the project for later use with std\+::filesystem. This version works on Linux. 
+
+\begin{DoxyReturn}{Returns}
+string of the absolute path to project root 
+\end{DoxyReturn}
+\Hypertarget{utilities_8h_a402c459c34da3447ff58de9627432197}\label{utilities_8h_a402c459c34da3447ff58de9627432197} 
+\index{utilities.h@{utilities.h}!getStationDataString@{getStationDataString}}
+\index{getStationDataString@{getStationDataString}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{getStationDataString()}{getStationDataString()}}
+{\footnotesize\ttfamily string get\+Station\+Data\+String (\begin{DoxyParamCaption}\item[{string}]{station\+List,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Used for getting a Json-\/formatted string for a particular station from \doxylink{utilities_8h_aa6a4837e4a9477e03fed90329998c7e7}{generate\+Station\+List()} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em station\+List} & Json-\/formatted string of station data \\
+\hline
+{\em index} & index of station we want to obtain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Json-\/formatted string to be loaded into a function 
+\end{DoxyReturn}
+\Hypertarget{utilities_8h_a687c8116f837493d0927f1ae71f6f54f}\label{utilities_8h_a687c8116f837493d0927f1ae71f6f54f} 
+\index{utilities.h@{utilities.h}!loadStationsOffline@{loadStationsOffline}}
+\index{loadStationsOffline@{loadStationsOffline}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{loadStationsOffline()}{loadStationsOffline()}}
+{\footnotesize\ttfamily bool load\+Stations\+Offline (\begin{DoxyParamCaption}\item[{string \&}]{response,  }\item[{string}]{file\+Path = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+
+
+Used to load list of stations from file instead of. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & passed by reference. The string from file will get saved here \\
+\hline
+{\em file\+Path} & Path to json file with stations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\Hypertarget{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}\label{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1} 
+\index{utilities.h@{utilities.h}!parseJsonResponse@{parseJsonResponse}}
+\index{parseJsonResponse@{parseJsonResponse}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{parseJsonResponse()}{parseJsonResponse()}}
+{\footnotesize\ttfamily bool parse\+Json\+Response (\begin{DoxyParamCaption}\item[{const string \&}]{json\+Response,  }\item[{Json\+::\+Value \&}]{parsed\+Root }\end{DoxyParamCaption})}
+
+
+
+Function used for parsing all Json in the project. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+Response} & string to parse \\
+\hline
+{\em parsed\+Root} & Json\+::\+Value object for later manipulation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\Hypertarget{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}\label{utilities_8h_af990b2e9ea8140909bd46b63bc88695b} 
+\index{utilities.h@{utilities.h}!performCurlRequest@{performCurlRequest}}
+\index{performCurlRequest@{performCurlRequest}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{performCurlRequest()}{performCurlRequest()}}
+{\footnotesize\ttfamily bool perform\+Curl\+Request (\begin{DoxyParamCaption}\item[{const string \&}]{url,  }\item[{string \&}]{response }\end{DoxyParamCaption})}
+
+
+
+This function is used for all Curl requests in the project. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & url of API request \\
+\hline
+{\em response} & the response \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\Hypertarget{utilities_8h_af6b2a1eb85ed995b2bd4369d8da9a5d7}\label{utilities_8h_af6b2a1eb85ed995b2bd4369d8da9a5d7} 
+\index{utilities.h@{utilities.h}!readStringFromFile@{readStringFromFile}}
+\index{readStringFromFile@{readStringFromFile}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{readStringFromFile()}{readStringFromFile()}}
+{\footnotesize\ttfamily std\+::string read\+String\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+writes contents of specified file to string 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & full absolute path to file \\
+\hline
+\end{DoxyParams}
+\Hypertarget{utilities_8h_aca9a64d478c64568f94626641c73bd30}\label{utilities_8h_aca9a64d478c64568f94626641c73bd30} 
+\index{utilities.h@{utilities.h}!WriteCallback@{WriteCallback}}
+\index{WriteCallback@{WriteCallback}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{WriteCallback()}{WriteCallback()}}
+{\footnotesize\ttfamily size\+\_\+t Write\+Callback (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{contents,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{nmemb,  }\item[{void \texorpdfstring{$\ast$}{*}}]{userp }\end{DoxyParamCaption})}
+
+
+
+Function specifying the format of the output of a Curl request. 
+
+\Hypertarget{utilities_8h_a43aa7b90193038a7bddec549313811ca}\label{utilities_8h_a43aa7b90193038a7bddec549313811ca} 
+\index{utilities.h@{utilities.h}!writeToFile@{writeToFile}}
+\index{writeToFile@{writeToFile}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{writeToFile()}{writeToFile()}}
+{\footnotesize\ttfamily void write\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path,  }\item[{const std\+::string \&}]{content }\end{DoxyParamCaption})}
+
+
+
+used to write string to file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & absolute path to destination file \\
+\hline
+{\em content} & string to write \\
+\hline
+\end{DoxyParams}

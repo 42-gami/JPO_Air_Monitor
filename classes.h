@@ -10,7 +10,9 @@
 
 using namespace std;
 
-class Gegr { //helper class for distance calculations
+
+/// @brief Helper class for distance calculations.
+class Gegr {
     public:
         double lat;
         double lon;
@@ -37,9 +39,12 @@ double convertDateToTimestamp(const std::string& datetime) {
     return static_cast<double>(time);
 }
 
+/// @brief Class used for converting data about stations into formats later passed to the GUI
+///Created by a json-formatted string, it extracts all of the relevant information and loads it into vectors. It's important to keep the vectors aligned.
 class StationList {
 public:
     vector<string> names;
+    /// Necessary for displaying in ImGui. Automatically created based on the std::string names
     vector<const char*> c_strNames;
     vector<string> ids;
     vector<Gegr> locations;
@@ -96,10 +101,14 @@ public:
     }
 };
 
+
+/// @brief Class used to prepare data for display in the GUI. also stores data relevant to making further API calls for Reading objects.
+/// Created by json-formatted string. Must keep vectors aligned. Each corresponding index is for 1 Sensor.
 class SensorList {
 public:
     string stationId;
     vector<string> names;
+    /// Necessary for displaying in ImGui. Automatically created based on the std::string names
     vector<const char*>c_strNames;
     vector<string> ids;
     vector<Json::Value> jsonData;
@@ -140,6 +149,8 @@ public:
     }
 };
 
+/// @brief Class used to extract relevant data from json-formatted string and make it compatible with the GUI.
+/// By default automatically calculates statistics when created.
 class Reading {
 public:
     string paramName;
@@ -149,6 +160,7 @@ public:
     vector<double> indices;
     vector<string> dates;
     vector<double> dateTimestamps;
+    /// Necessary for displaying in ImGui. Automatically created based on the std::string names
     vector<const char*> c_strNames;
     Json::Value jsonData;
 
@@ -194,6 +206,7 @@ public:
         }
         return false;
     }
+
 
     void prepareCStrNames() {
         c_strNames.clear();

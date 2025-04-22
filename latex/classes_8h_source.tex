@@ -1,0 +1,277 @@
+\doxysection{classes.\+h}
+\hypertarget{classes_8h_source}{}\label{classes_8h_source}\mbox{\hyperlink{classes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <json/json.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGegr}{Gegr}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classGegr_a67ff4478ccafb4809c1cf0e9007a8d3e}{lat}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classGegr_ae6275e4e1e06f18da363c5715e27d05a}{lon}};}
+\DoxyCodeLine{00019\ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGegr_a094166fa1f9af9fdbc1f56db91129b14}{Gegr}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classGegr_a67ff4478ccafb4809c1cf0e9007a8d3e}{lat}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classGegr_ae6275e4e1e06f18da363c5715e27d05a}{lon}})\ :\ \mbox{\hyperlink{classGegr_a67ff4478ccafb4809c1cf0e9007a8d3e}{lat}}(\mbox{\hyperlink{classGegr_a67ff4478ccafb4809c1cf0e9007a8d3e}{lat}}),\ \mbox{\hyperlink{classGegr_ae6275e4e1e06f18da363c5715e27d05a}{lon}}(\mbox{\hyperlink{classGegr_ae6275e4e1e06f18da363c5715e27d05a}{lon}})\ \{\}}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classGegr_a39b56ec9a19646168b2ab9b94dd3731a}{distance}}(\mbox{\hyperlink{classGegr}{Gegr}}\ loc)\ \{\ \textcolor{comment}{//only\ works\ when\ surface\ is\ locally\ flat,\ like\ Poland}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dlat\ =\ loc.\mbox{\hyperlink{classGegr_a67ff4478ccafb4809c1cf0e9007a8d3e}{lat}}\ -\/\ \mbox{\hyperlink{classGegr_a67ff4478ccafb4809c1cf0e9007a8d3e}{lat}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dlon\ =\ loc.\mbox{\hyperlink{classGegr_ae6275e4e1e06f18da363c5715e27d05a}{lon}}\ -\/\ \mbox{\hyperlink{classGegr_ae6275e4e1e06f18da363c5715e27d05a}{lon}};}
+\DoxyCodeLine{00025\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::sqrt(dlat\ *\ dlat\ +\ dlon\ *\ dlon);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classes_8h_a3e11f8c06291654e1a0f0205b3b3eb80}{convertDateToTimestamp}}(\textcolor{keyword}{const}\ std::string\&\ datetime)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ std::tm\ tm\ =\ \{\};}
+\DoxyCodeLine{00033\ \ \ \ \ std::istringstream\ ss(datetime);}
+\DoxyCodeLine{00034\ \ \ \ \ ss\ >>\ std::get\_time(\&tm,\ \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d\ \%H:\%M:\%S"{}});}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (ss.fail())\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ time\_t\ time\ =\ std::mktime(\&tm);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(time);}
+\DoxyCodeLine{00040\ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classStationList}{StationList}}\ \{}
+\DoxyCodeLine{00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ vector<string>\ \mbox{\hyperlink{classStationList_a643d47deb5650b5afd55c07270c8e2f4}{names}};}
+\DoxyCodeLine{00048\ \ \ \ \ vector<const\ char*>\ \mbox{\hyperlink{classStationList_a4f810a5ae1edc17929d51e0d577324bd}{c\_strNames}};}
+\DoxyCodeLine{00049\ \ \ \ \ vector<string>\ \mbox{\hyperlink{classStationList_a5534d716730a4ebb674521f16ffc1921}{ids}};}
+\DoxyCodeLine{00050\ \ \ \ \ vector<Gegr>\ \mbox{\hyperlink{classStationList_aba41f1360357afb0abd0dc57489e8f04}{locations}};}
+\DoxyCodeLine{00051\ \ \ \ \ vector<Json::Value>\ \mbox{\hyperlink{classStationList_a490a3da91200eac1dc22cb9c29823c54}{jsonData}};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}}\ =\ -\/1;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classStationList_a03f3dd9007bd7b975f9900de496955df}{StationList}}()\ \{\}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classStationList_a3d123b9ae1f97e18e1143a87aea77247}{StationList}}(\textcolor{keywordtype}{string}\ jsonString)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classStationList_a7d77ce19fe4637df8ec63fe0d288e2a0}{loadData}}(jsonString))\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a30404971f26c94a0c6d1dee52c567b7a}{prepareCStrNames}}();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classStationList_a7d77ce19fe4637df8ec63fe0d288e2a0}{loadData}}(\textcolor{keywordtype}{string}\ jsonString)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}}\ =\ -\/1;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a643d47deb5650b5afd55c07270c8e2f4}{names}}.clear();}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a5534d716730a4ebb674521f16ffc1921}{ids}}.clear();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_aba41f1360357afb0abd0dc57489e8f04}{locations}}.clear();}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a490a3da91200eac1dc22cb9c29823c54}{jsonData}}.clear();}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ Json::Value\ root;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(jsonString,\ root))\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Json::Value::const\_iterator\ it\ =\ root.begin();\ it\ !=\ root.end();\ it++)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Json::Value\ stationData\ =\ *it;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a643d47deb5650b5afd55c07270c8e2f4}{names}}.push\_back(stationData[\textcolor{stringliteral}{"{}stationName"{}}].asString());}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a5534d716730a4ebb674521f16ffc1921}{ids}}.push\_back(stationData[\textcolor{stringliteral}{"{}id"{}}].asString());}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_aba41f1360357afb0abd0dc57489e8f04}{locations}}.push\_back(\mbox{\hyperlink{classGegr}{Gegr}}(std::stod(stationData[\textcolor{stringliteral}{"{}gegrLat"{}}].asString()),\ std::stod(stationData[\textcolor{stringliteral}{"{}gegrLon"{}}].asString())));}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a490a3da91200eac1dc22cb9c29823c54}{jsonData}}.push\_back(stationData);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classStationList_a30404971f26c94a0c6d1dee52c567b7a}{prepareCStrNames}}()\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a4f810a5ae1edc17929d51e0d577324bd}{c\_strNames}}.clear();}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ name\ :\ \mbox{\hyperlink{classStationList_a643d47deb5650b5afd55c07270c8e2f4}{names}})\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a4f810a5ae1edc17929d51e0d577324bd}{c\_strNames}}.push\_back(name.c\_str());}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classStationList_a9339a0a3f169d3b455fd0a53109d3efc}{selectNearestStation}}(\mbox{\hyperlink{classGegr}{Gegr}}\ myLoc\ =\ \mbox{\hyperlink{classGegr}{Gegr}}(50.0,\ 16.0))\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}}\ =\ -\/1;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ minDist\ =\ std::numeric\_limits<double>::infinity();}
+\DoxyCodeLine{00092\ \ \ \ \ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classStationList_aba41f1360357afb0abd0dc57489e8f04}{locations}}.size();\ ++i)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dist\ =\ myLoc.distance(\mbox{\hyperlink{classStationList_aba41f1360357afb0abd0dc57489e8f04}{locations}}[i]);}
+\DoxyCodeLine{00095\ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dist\ <\ minDist)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minDist\ =\ dist;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}}\ =\ i;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSensorList}{SensorList}}\ \{}
+\DoxyCodeLine{00108\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classSensorList_a04dc15433e4fedce325c76350e1d1fd4}{stationId}};}
+\DoxyCodeLine{00110\ \ \ \ \ vector<string>\ \mbox{\hyperlink{classSensorList_af5acc23a6777d9bc88694f43986f2ca6}{names}};}
+\DoxyCodeLine{00112\ \ \ \ \ vector<const\ char*>\mbox{\hyperlink{classSensorList_acdae332e5c2b4d3d8856eff32564b738}{c\_strNames}};}
+\DoxyCodeLine{00113\ \ \ \ \ vector<string>\ \mbox{\hyperlink{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}{ids}};}
+\DoxyCodeLine{00114\ \ \ \ \ vector<Json::Value>\ \mbox{\hyperlink{classSensorList_a77039f3e9e4c3d2f5e286f93e0e162b3}{jsonData}};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}}\ =\ -\/1;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{classSensorList_a243f32158e8ee758fdc3c3e9a4322b25}{SensorList}}()\ \{\}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{classSensorList_a4cc090967dae10532a9c2cb47516bead}{SensorList}}(\textcolor{keywordtype}{string}\ jsonString)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classSensorList_aa920a6a4e8b5e5130c65db881a9ab3c4}{loadData}}(jsonString))\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_afdc40e3228767a51675f3eb647b57129}{prepareCStrNames}}();}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSensorList_aa920a6a4e8b5e5130c65db881a9ab3c4}{loadData}}(\textcolor{keywordtype}{string}\ jsonString)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}}\ =\ -\/1;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_af5acc23a6777d9bc88694f43986f2ca6}{names}}.clear();}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}{ids}}.clear();}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_a77039f3e9e4c3d2f5e286f93e0e162b3}{jsonData}}.clear();}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ Json::Value\ root;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(jsonString,\ root))\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_a04dc15433e4fedce325c76350e1d1fd4}{stationId}}\ =\ root[0][\textcolor{stringliteral}{"{}stationId"{}}].asString();}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Json::Value::const\_iterator\ it\ =\ root.begin();\ it\ !=\ root.end();\ it++)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Json::Value\ sensorData\ =\ *it;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_af5acc23a6777d9bc88694f43986f2ca6}{names}}.push\_back(sensorData[\textcolor{stringliteral}{"{}param"{}}][\textcolor{stringliteral}{"{}paramName"{}}].asString());}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}{ids}}.push\_back(sensorData[\textcolor{stringliteral}{"{}id"{}}].asString());}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_a77039f3e9e4c3d2f5e286f93e0e162b3}{jsonData}}.push\_back(sensorData);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSensorList_afdc40e3228767a51675f3eb647b57129}{prepareCStrNames}}()\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_acdae332e5c2b4d3d8856eff32564b738}{c\_strNames}}.clear();}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ name\ :\ \mbox{\hyperlink{classSensorList_af5acc23a6777d9bc88694f43986f2ca6}{names}})\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSensorList_acdae332e5c2b4d3d8856eff32564b738}{c\_strNames}}.push\_back(name.c\_str());}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00154\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classReading}{Reading}}\ \{}
+\DoxyCodeLine{00155\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classReading_a10be2eee62ddd1062719b2eb87ae78b7}{paramName}};}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classReading_a577650500fcec49f01321a9d88e60555}{paramId}};}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classReading_a84b94ca5842699e402de41296be3920e}{jsonDataString}};}
+\DoxyCodeLine{00159\ \ \ \ \ vector<double>\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}};}
+\DoxyCodeLine{00160\ \ \ \ \ vector<double>\ \mbox{\hyperlink{classReading_ad5a59515f42f20620424598fdd8069a8}{indices}};}
+\DoxyCodeLine{00161\ \ \ \ \ vector<string>\ \mbox{\hyperlink{classReading_a0a78fcbdce66ce8b2dee0606129f24d4}{dates}};}
+\DoxyCodeLine{00162\ \ \ \ \ vector<double>\ \mbox{\hyperlink{classReading_ae7569864112eb037d3500340ed9498c0}{dateTimestamps}};}
+\DoxyCodeLine{00164\ \ \ \ \ vector<const\ char*>\ \mbox{\hyperlink{classReading_a83de1616d1aac8e3181372ca33318975}{c\_strNames}};}
+\DoxyCodeLine{00165\ \ \ \ \ Json::Value\ \mbox{\hyperlink{classReading_ad88f210764a51618b5208412df785295}{jsonData}};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classReading_a9135a08bb39a71da9c34e6aa89c3b339}{average}};}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classReading_aff986077658c4a3674f73b7bea38cd39}{min}};}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classReading_a9223034f72914c8b505b3a7e2e940e3f}{minTime}};}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classReading_a37137f73e4d6e1632bd9c353d7201656}{max}};}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classReading_aba3fc716cea65e172a4fd3fb35108c70}{maxTime}};}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classReading_a8c815704533d077ec25892c3cc0fda6e}{trend}};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{classReading_a6dce74773104164a2f4a819952940bef}{Reading}}()\ \{\};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{classReading_aaae3d74b11703453c1f6958f3d054d76}{Reading}}(\textcolor{keywordtype}{string}\ jsonString,\ \textcolor{keywordtype}{string}\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a577650500fcec49f01321a9d88e60555}{paramId}}\ =\ id;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classReading_a75f182b9733313302c915092bc3b44e5}{loadData}}(jsonString))\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a2449dc9622c8e3f95826606b06a864c1}{prepareCStrNames}}();}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_ae794a04029295e649179210e29b9ed00}{prepareTimestamps}}();}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a56f7542a1775e1611282bb76323cc072}{findMax}}();}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a6a7b5ce3df81c9c5708a817a33e2f791}{findMin}}();}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_ab43e4ca7e4b86d8b844ae698ed9ad783}{findAverage}}();}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReading_a75f182b9733313302c915092bc3b44e5}{loadData}}(\textcolor{keywordtype}{string}\ jsonString)\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a84b94ca5842699e402de41296be3920e}{jsonDataString}}\ =\ jsonString;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.clear();}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a0a78fcbdce66ce8b2dee0606129f24d4}{dates}}.clear();}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_ad5a59515f42f20620424598fdd8069a8}{indices}}.clear();}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ Json::Value\ outerRoot;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(jsonString,\ outerRoot))\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a10be2eee62ddd1062719b2eb87ae78b7}{paramName}}\ =\ outerRoot[\textcolor{stringliteral}{"{}key"{}}].asString();}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ Json::Value\ root\ =\ outerRoot[\textcolor{stringliteral}{"{}values"{}}];}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_ad88f210764a51618b5208412df785295}{jsonData}}\ =\ root;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ index\ =\ 0;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ root.size()\ -\/\ 1;\ i\ >=\ 0;\ -\/-\/i)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Json::Value\ readingData\ =\ root[i];}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.push\_back(readingData[\textcolor{stringliteral}{"{}value"{}}].asDouble());}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a0a78fcbdce66ce8b2dee0606129f24d4}{dates}}.push\_back(readingData[\textcolor{stringliteral}{"{}date"{}}].asString());}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_ad5a59515f42f20620424598fdd8069a8}{indices}}.push\_back(index);}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ +=\ 1.0;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReading_a2449dc9622c8e3f95826606b06a864c1}{prepareCStrNames}}()\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a83de1616d1aac8e3181372ca33318975}{c\_strNames}}.clear();}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ date\ :\ \mbox{\hyperlink{classReading_a0a78fcbdce66ce8b2dee0606129f24d4}{dates}})\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a83de1616d1aac8e3181372ca33318975}{c\_strNames}}.push\_back(date.c\_str());}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReading_ae794a04029295e649179210e29b9ed00}{prepareTimestamps}}()\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_ae7569864112eb037d3500340ed9498c0}{dateTimestamps}}.clear();}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ std::string\&\ dateStr\ :\ \mbox{\hyperlink{classReading_a0a78fcbdce66ce8b2dee0606129f24d4}{dates}})\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ts\ =\ \mbox{\hyperlink{classes_8h_a3e11f8c06291654e1a0f0205b3b3eb80}{convertDateToTimestamp}}(dateStr);}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_ae7569864112eb037d3500340ed9498c0}{dateTimestamps}}.push\_back(ts);}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReading_a6a7b5ce3df81c9c5708a817a33e2f791}{findMin}}()\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ minValue\ =\ std::numeric\_limits<double>::infinity();}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.size();\ ++i)\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}[i]\ >\ 0\ \&\&\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}[i]\ <\ minValue)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ minValue\ =\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}[i];}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a9223034f72914c8b505b3a7e2e940e3f}{minTime}}\ =\ \mbox{\hyperlink{classReading_a0a78fcbdce66ce8b2dee0606129f24d4}{dates}}[i];}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_aff986077658c4a3674f73b7bea38cd39}{min}}\ =\ minValue;}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ }
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReading_a56f7542a1775e1611282bb76323cc072}{findMax}}()\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.empty())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a37137f73e4d6e1632bd9c353d7201656}{max}}\ =\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}[0];}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_aba3fc716cea65e172a4fd3fb35108c70}{maxTime}}\ =\ \mbox{\hyperlink{classReading_a0a78fcbdce66ce8b2dee0606129f24d4}{dates}}[0];}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 1;\ i\ <\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.size();\ ++i)\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}[i]\ >\ \mbox{\hyperlink{classReading_a37137f73e4d6e1632bd9c353d7201656}{max}}\ \&\&\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}[i]\ !=\ 0)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a37137f73e4d6e1632bd9c353d7201656}{max}}\ =\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}[i];}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_aba3fc716cea65e172a4fd3fb35108c70}{maxTime}}\ =\ \mbox{\hyperlink{classReading_a0a78fcbdce66ce8b2dee0606129f24d4}{dates}}[i];}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00250\ \ \ \ \ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReading_ab43e4ca7e4b86d8b844ae698ed9ad783}{findAverage}}()\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.empty())\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a9135a08bb39a71da9c34e6aa89c3b339}{average}}\ =\ 0.0;}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0.0;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.size();\ ++i)\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ sum\ +=\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}[i];}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReading_a9135a08bb39a71da9c34e6aa89c3b339}{average}}\ =\ sum\ /\ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.size();}
+\DoxyCodeLine{00264\ \ \ \ \ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReading_a49982869d2c7f789c288924856d9d10a}{saveData}}(\textcolor{keywordtype}{string}\ projectRoot)\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ filePath\ =\ projectRoot\ +\ \textcolor{stringliteral}{"{}/saves/readings/r"{}}\ +\ \mbox{\hyperlink{classReading_a577650500fcec49f01321a9d88e60555}{paramId}}\ +\ \textcolor{stringliteral}{"{}.json"{}};}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::filesystem::exists(filePath))\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ jsonDataFile\ =\ \mbox{\hyperlink{utilities_8h_af6b2a1eb85ed995b2bd4369d8da9a5d7}{readStringFromFile}}(filePath);}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ Json::Value\ root;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(jsonDataFile,\ root))\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{utilities_8h_a43aa7b90193038a7bddec549313811ca}{writeToFile}}(filePath,\ \mbox{\hyperlink{classReading_a84b94ca5842699e402de41296be3920e}{jsonDataString}});}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00281\ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \};}
+\DoxyCodeLine{00283\ }
+
+\end{DoxyCode}

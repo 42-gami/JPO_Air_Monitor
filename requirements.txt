@@ -1,0 +1,8 @@
+Requirements:
+-OpenGl drivers
+-GLFW
+-jsonCpp
+-libcurl
+-ImGui
+-meson
+-ninja

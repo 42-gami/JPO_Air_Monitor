@@ -1,0 +1,270 @@
+\doxysection{my\+App Class Reference}
+\hypertarget{classmyApp}{}\label{classmyApp}\index{myApp@{myApp}}
+
+
+Class responsible for presentation and coordination of all other elements of the program.  
+
+
+
+
+{\ttfamily \#include $<$gui\+\_\+app.\+h$>$}
+
+Inheritance diagram for my\+App\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmyApp}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{App\+State}} \{ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{STATION\+\_\+\+MENU}}
+, \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}{SENSOR\+\_\+\+MENU}}
+, \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}{READING\+\_\+\+VIEW}}
+, \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{INVALID\+\_\+\+STATE}}
+ \}
+\begin{DoxyCompactList}\small\item\em All states of the Gui. INVALID\+\_\+\+STATE basically restarts the app. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmyApp_ad4c6bd0792bfe2cc190be5f37e0734a1}{my\+App}} ()=default
+\item 
+\mbox{\hyperlink{classmyApp_a4c52fbda5daa9b4dc180c07649675027}{\texorpdfstring{$\sim$}{\string~}my\+App}} ()=default
+\item 
+void \mbox{\hyperlink{classmyApp_aae693ab1f1de6aaa60951e196d1c1a50}{Start\+Up}} ()
+\begin{DoxyCompactList}\small\item\em mainly used to check if REST API is reachable. Switches app to Offline mode when there is problems with connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmyApp_a87910811149ef621b1368bda62826890}{Update}} ()
+\item 
+void \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{show\+Station\+Menu}} ()
+\item 
+void \mbox{\hyperlink{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}{show\+Sensor\+Menu}} ()
+\item 
+void \mbox{\hyperlink{classmyApp_a95ccb2886332332807e10bf3097f2d6f}{show\+Reading\+Screen}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classApp}{App$<$ my\+App $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classApp_a09e00faa058b338bf9892adbf3e5ef3d}{Start\+Up}} ()
+\item 
+void \mbox{\hyperlink{classApp_a7974a9839ad7c786ce1a0c93177aa59b}{Update}} ()
+\item 
+\mbox{\hyperlink{classApp_a9e52361d3214d02bd861a59b3b1fadb0}{App}} ()
+\item 
+\mbox{\hyperlink{classApp_a2c0e6e0b81ca91398206c433bc43b6ef}{\texorpdfstring{$\sim$}{\string~}\+App}} ()
+\item 
+void \mbox{\hyperlink{classApp_a876642e1e04d05c80a8d272364b08a40}{Run}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const string \mbox{\hyperlink{classmyApp_a1b1fb34fef66f92b0b0da96a700da1d6}{stations\+Url}} = "{}https\+://api.\+gios.\+gov.\+pl/pjp-\/api/rest/station/find\+All"{}
+\item 
+const string \mbox{\hyperlink{classmyApp_adb50e32b8ede7ed7a5a6075052adf8d6}{sensors\+Url\+Root}} = "{}https\+://api.\+gios.\+gov.\+pl/pjp-\/api/rest/station/sensors/"{}
+\item 
+const string \mbox{\hyperlink{classmyApp_aab051ab584056f24efeab5393c293980}{reading\+Url\+Root}} = "{}https\+://api.\+gios.\+gov.\+pl/pjp-\/api/rest/data/get\+Data/"{}
+\item 
+const string \mbox{\hyperlink{classmyApp_ad108a4bd45fb52c30282e1b44036845a}{geolocation\+Url}} = "{}http\+://ip-\/api.\+com/json/"{}
+\item 
+const string \mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{project\+Root}} = \mbox{\hyperlink{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45}{get\+Root\+Linux}}()
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{error\+Message}} = "{}No errors yet"{}
+\item 
+bool \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}} = false
+\item 
+\mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{App\+State}} \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{app\+State}} = \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{App\+State\+::\+STATION\+\_\+\+MENU}}
+\item 
+string \mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{station\+List\+Json}}
+\item 
+\mbox{\hyperlink{classStationList}{Station\+List}} \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{current\+Station\+List}}
+\item 
+string \mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensor\+List\+Json}}
+\item 
+\mbox{\hyperlink{classSensorList}{Sensor\+List}} \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{current\+Sensor\+List}}
+\item 
+string \mbox{\hyperlink{classmyApp_a2cb7b609c520cef919f1c2b9494136af}{reading\+Json}}
+\item 
+\mbox{\hyperlink{classReading}{Reading}} \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{current\+Reading}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classApp}{App$<$ my\+App $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+Im\+Vec4 \mbox{\hyperlink{classApp_a4412f3c664094364b35a0ccce9a34102}{clear\+\_\+color}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class responsible for presentation and coordination of all other elements of the program. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}\label{classmyApp_ace14ce2f851c51e469c00f1ff36e530f} 
+\index{myApp@{myApp}!AppState@{AppState}}
+\index{AppState@{AppState}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{AppState}{AppState}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{my\+App\+::\+App\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+All states of the Gui. INVALID\+\_\+\+STATE basically restarts the app. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATION\_MENU@{STATION\_MENU}!myApp@{myApp}}\index{myApp@{myApp}!STATION\_MENU@{STATION\_MENU}}}\Hypertarget{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}\label{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41} 
+STATION\+\_\+\+MENU&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SENSOR\_MENU@{SENSOR\_MENU}!myApp@{myApp}}\index{myApp@{myApp}!SENSOR\_MENU@{SENSOR\_MENU}}}\Hypertarget{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}\label{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f} 
+SENSOR\+\_\+\+MENU&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{READING\_VIEW@{READING\_VIEW}!myApp@{myApp}}\index{myApp@{myApp}!READING\_VIEW@{READING\_VIEW}}}\Hypertarget{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}\label{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167} 
+READING\+\_\+\+VIEW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_STATE@{INVALID\_STATE}!myApp@{myApp}}\index{myApp@{myApp}!INVALID\_STATE@{INVALID\_STATE}}}\Hypertarget{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}\label{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659} 
+INVALID\+\_\+\+STATE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmyApp_ad4c6bd0792bfe2cc190be5f37e0734a1}\label{classmyApp_ad4c6bd0792bfe2cc190be5f37e0734a1} 
+\index{myApp@{myApp}!myApp@{myApp}}
+\index{myApp@{myApp}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{myApp()}{myApp()}}
+{\footnotesize\ttfamily my\+App\+::my\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classmyApp_a4c52fbda5daa9b4dc180c07649675027}\label{classmyApp_a4c52fbda5daa9b4dc180c07649675027} 
+\index{myApp@{myApp}!````~myApp@{\texorpdfstring{$\sim$}{\string~}myApp}}
+\index{````~myApp@{\texorpdfstring{$\sim$}{\string~}myApp}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}myApp()}{\string~myApp()}}
+{\footnotesize\ttfamily my\+App\+::\texorpdfstring{$\sim$}{\string~}my\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmyApp_a95ccb2886332332807e10bf3097f2d6f}\label{classmyApp_a95ccb2886332332807e10bf3097f2d6f} 
+\index{myApp@{myApp}!showReadingScreen@{showReadingScreen}}
+\index{showReadingScreen@{showReadingScreen}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{showReadingScreen()}{showReadingScreen()}}
+{\footnotesize\ttfamily void my\+App\+::show\+Reading\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}\label{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1} 
+\index{myApp@{myApp}!showSensorMenu@{showSensorMenu}}
+\index{showSensorMenu@{showSensorMenu}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{showSensorMenu()}{showSensorMenu()}}
+{\footnotesize\ttfamily void my\+App\+::show\+Sensor\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classmyApp_aee564fded738e7601bb535523ffda881}\label{classmyApp_aee564fded738e7601bb535523ffda881} 
+\index{myApp@{myApp}!showStationMenu@{showStationMenu}}
+\index{showStationMenu@{showStationMenu}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{showStationMenu()}{showStationMenu()}}
+{\footnotesize\ttfamily void my\+App\+::show\+Station\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classmyApp_aae693ab1f1de6aaa60951e196d1c1a50}\label{classmyApp_aae693ab1f1de6aaa60951e196d1c1a50} 
+\index{myApp@{myApp}!StartUp@{StartUp}}
+\index{StartUp@{StartUp}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{StartUp()}{StartUp()}}
+{\footnotesize\ttfamily void my\+App\+::\+Start\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+mainly used to check if REST API is reachable. Switches app to Offline mode when there is problems with connection. 
+
+\Hypertarget{classmyApp_a87910811149ef621b1368bda62826890}\label{classmyApp_a87910811149ef621b1368bda62826890} 
+\index{myApp@{myApp}!Update@{Update}}
+\index{Update@{Update}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void my\+App\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classmyApp_a049b6247c8a39de1f226484bb948ec63}\label{classmyApp_a049b6247c8a39de1f226484bb948ec63} 
+\index{myApp@{myApp}!appState@{appState}}
+\index{appState@{appState}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{appState}{appState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{App\+State}} my\+App\+::app\+State = \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{App\+State\+::\+STATION\+\_\+\+MENU}}}
+
+\Hypertarget{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}\label{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8} 
+\index{myApp@{myApp}!currentReading@{currentReading}}
+\index{currentReading@{currentReading}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{currentReading}{currentReading}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classReading}{Reading}} my\+App\+::current\+Reading}
+
+\Hypertarget{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}\label{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc} 
+\index{myApp@{myApp}!currentSensorList@{currentSensorList}}
+\index{currentSensorList@{currentSensorList}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{currentSensorList}{currentSensorList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSensorList}{Sensor\+List}} my\+App\+::current\+Sensor\+List}
+
+\Hypertarget{classmyApp_a87dc551a1d50e5ee553520f889fe4781}\label{classmyApp_a87dc551a1d50e5ee553520f889fe4781} 
+\index{myApp@{myApp}!currentStationList@{currentStationList}}
+\index{currentStationList@{currentStationList}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{currentStationList}{currentStationList}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStationList}{Station\+List}} my\+App\+::current\+Station\+List}
+
+\Hypertarget{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}\label{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43} 
+\index{myApp@{myApp}!errorMessage@{errorMessage}}
+\index{errorMessage@{errorMessage}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{errorMessage}{errorMessage}}
+{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} my\+App\+::error\+Message = "{}No errors yet"{}}
+
+\Hypertarget{classmyApp_ad108a4bd45fb52c30282e1b44036845a}\label{classmyApp_ad108a4bd45fb52c30282e1b44036845a} 
+\index{myApp@{myApp}!geolocationUrl@{geolocationUrl}}
+\index{geolocationUrl@{geolocationUrl}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{geolocationUrl}{geolocationUrl}}
+{\footnotesize\ttfamily const string my\+App\+::geolocation\+Url = "{}http\+://ip-\/api.\+com/json/"{}}
+
+\Hypertarget{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}\label{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d} 
+\index{myApp@{myApp}!online@{online}}
+\index{online@{online}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{online}{online}}
+{\footnotesize\ttfamily bool my\+App\+::online = false}
+
+\Hypertarget{classmyApp_ab9a712b89f521c17d54954549d6d800e}\label{classmyApp_ab9a712b89f521c17d54954549d6d800e} 
+\index{myApp@{myApp}!projectRoot@{projectRoot}}
+\index{projectRoot@{projectRoot}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{projectRoot}{projectRoot}}
+{\footnotesize\ttfamily const string my\+App\+::project\+Root = \mbox{\hyperlink{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45}{get\+Root\+Linux}}()}
+
+\Hypertarget{classmyApp_a2cb7b609c520cef919f1c2b9494136af}\label{classmyApp_a2cb7b609c520cef919f1c2b9494136af} 
+\index{myApp@{myApp}!readingJson@{readingJson}}
+\index{readingJson@{readingJson}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{readingJson}{readingJson}}
+{\footnotesize\ttfamily string my\+App\+::reading\+Json}
+
+\Hypertarget{classmyApp_aab051ab584056f24efeab5393c293980}\label{classmyApp_aab051ab584056f24efeab5393c293980} 
+\index{myApp@{myApp}!readingUrlRoot@{readingUrlRoot}}
+\index{readingUrlRoot@{readingUrlRoot}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{readingUrlRoot}{readingUrlRoot}}
+{\footnotesize\ttfamily const string my\+App\+::reading\+Url\+Root = "{}https\+://api.\+gios.\+gov.\+pl/pjp-\/api/rest/data/get\+Data/"{}}
+
+\Hypertarget{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}\label{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a} 
+\index{myApp@{myApp}!sensorListJson@{sensorListJson}}
+\index{sensorListJson@{sensorListJson}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{sensorListJson}{sensorListJson}}
+{\footnotesize\ttfamily string my\+App\+::sensor\+List\+Json}
+
+\Hypertarget{classmyApp_adb50e32b8ede7ed7a5a6075052adf8d6}\label{classmyApp_adb50e32b8ede7ed7a5a6075052adf8d6} 
+\index{myApp@{myApp}!sensorsUrlRoot@{sensorsUrlRoot}}
+\index{sensorsUrlRoot@{sensorsUrlRoot}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{sensorsUrlRoot}{sensorsUrlRoot}}
+{\footnotesize\ttfamily const string my\+App\+::sensors\+Url\+Root = "{}https\+://api.\+gios.\+gov.\+pl/pjp-\/api/rest/station/sensors/"{}}
+
+\Hypertarget{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}\label{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207} 
+\index{myApp@{myApp}!stationListJson@{stationListJson}}
+\index{stationListJson@{stationListJson}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{stationListJson}{stationListJson}}
+{\footnotesize\ttfamily string my\+App\+::station\+List\+Json}
+
+\Hypertarget{classmyApp_a1b1fb34fef66f92b0b0da96a700da1d6}\label{classmyApp_a1b1fb34fef66f92b0b0da96a700da1d6} 
+\index{myApp@{myApp}!stationsUrl@{stationsUrl}}
+\index{stationsUrl@{stationsUrl}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{stationsUrl}{stationsUrl}}
+{\footnotesize\ttfamily const string my\+App\+::stations\+Url = "{}https\+://api.\+gios.\+gov.\+pl/pjp-\/api/rest/station/find\+All"{}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gui__app_8h}{gui\+\_\+app.\+h}}\end{DoxyCompactItemize}

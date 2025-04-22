@@ -1,0 +1,118 @@
+\doxysection{Sensor\+List Class Reference}
+\hypertarget{classSensorList}{}\label{classSensorList}\index{SensorList@{SensorList}}
+
+
+Class used to prepare data for display in the GUI. also stores data relevant to making further API calls for \doxylink{classReading}{Reading} objects. Created by json-\/formatted string. Must keep vectors aligned. Each corresponding index is for 1 Sensor.  
+
+
+
+
+{\ttfamily \#include $<$classes.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSensorList_a243f32158e8ee758fdc3c3e9a4322b25}{Sensor\+List}} ()
+\item 
+\mbox{\hyperlink{classSensorList_a4cc090967dae10532a9c2cb47516bead}{Sensor\+List}} (string json\+String)
+\item 
+bool \mbox{\hyperlink{classSensorList_aa920a6a4e8b5e5130c65db881a9ab3c4}{load\+Data}} (string json\+String)
+\item 
+void \mbox{\hyperlink{classSensorList_afdc40e3228767a51675f3eb647b57129}{prepare\+CStr\+Names}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classSensorList_a04dc15433e4fedce325c76350e1d1fd4}{station\+Id}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{classSensorList_af5acc23a6777d9bc88694f43986f2ca6}{names}}
+\item 
+vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classSensorList_acdae332e5c2b4d3d8856eff32564b738}{c\+\_\+str\+Names}}
+\begin{DoxyCompactList}\small\item\em Necessary for displaying in Im\+Gui. Automatically created based on the std\+::string names. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}{ids}}
+\item 
+vector$<$ Json\+::\+Value $>$ \mbox{\hyperlink{classSensorList_a77039f3e9e4c3d2f5e286f93e0e162b3}{json\+Data}}
+\item 
+int \mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}} = -\/1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class used to prepare data for display in the GUI. also stores data relevant to making further API calls for \doxylink{classReading}{Reading} objects. Created by json-\/formatted string. Must keep vectors aligned. Each corresponding index is for 1 Sensor. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSensorList_a243f32158e8ee758fdc3c3e9a4322b25}\label{classSensorList_a243f32158e8ee758fdc3c3e9a4322b25} 
+\index{SensorList@{SensorList}!SensorList@{SensorList}}
+\index{SensorList@{SensorList}!SensorList@{SensorList}}
+\doxysubsubsection{\texorpdfstring{SensorList()}{SensorList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Sensor\+List\+::\+Sensor\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classSensorList_a4cc090967dae10532a9c2cb47516bead}\label{classSensorList_a4cc090967dae10532a9c2cb47516bead} 
+\index{SensorList@{SensorList}!SensorList@{SensorList}}
+\index{SensorList@{SensorList}!SensorList@{SensorList}}
+\doxysubsubsection{\texorpdfstring{SensorList()}{SensorList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Sensor\+List\+::\+Sensor\+List (\begin{DoxyParamCaption}\item[{string}]{json\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSensorList_aa920a6a4e8b5e5130c65db881a9ab3c4}\label{classSensorList_aa920a6a4e8b5e5130c65db881a9ab3c4} 
+\index{SensorList@{SensorList}!loadData@{loadData}}
+\index{loadData@{loadData}!SensorList@{SensorList}}
+\doxysubsubsection{\texorpdfstring{loadData()}{loadData()}}
+{\footnotesize\ttfamily bool Sensor\+List\+::load\+Data (\begin{DoxyParamCaption}\item[{string}]{json\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classSensorList_afdc40e3228767a51675f3eb647b57129}\label{classSensorList_afdc40e3228767a51675f3eb647b57129} 
+\index{SensorList@{SensorList}!prepareCStrNames@{prepareCStrNames}}
+\index{prepareCStrNames@{prepareCStrNames}!SensorList@{SensorList}}
+\doxysubsubsection{\texorpdfstring{prepareCStrNames()}{prepareCStrNames()}}
+{\footnotesize\ttfamily void Sensor\+List\+::prepare\+CStr\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classSensorList_acdae332e5c2b4d3d8856eff32564b738}\label{classSensorList_acdae332e5c2b4d3d8856eff32564b738} 
+\index{SensorList@{SensorList}!c\_strNames@{c\_strNames}}
+\index{c\_strNames@{c\_strNames}!SensorList@{SensorList}}
+\doxysubsubsection{\texorpdfstring{c\_strNames}{c\_strNames}}
+{\footnotesize\ttfamily vector$<$const char\texorpdfstring{$\ast$}{*}$>$ Sensor\+List\+::c\+\_\+str\+Names}
+
+
+
+Necessary for displaying in Im\+Gui. Automatically created based on the std\+::string names. 
+
+\Hypertarget{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}\label{classSensorList_a98e500ddf8f505fd1fa957e9210bc533} 
+\index{SensorList@{SensorList}!ids@{ids}}
+\index{ids@{ids}!SensorList@{SensorList}}
+\doxysubsubsection{\texorpdfstring{ids}{ids}}
+{\footnotesize\ttfamily vector$<$string$>$ Sensor\+List\+::ids}
+
+\Hypertarget{classSensorList_aa270832f85237bf64328ae07c5a98bb2}\label{classSensorList_aa270832f85237bf64328ae07c5a98bb2} 
+\index{SensorList@{SensorList}!index@{index}}
+\index{index@{index}!SensorList@{SensorList}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily int Sensor\+List\+::index = -\/1}
+
+\Hypertarget{classSensorList_a77039f3e9e4c3d2f5e286f93e0e162b3}\label{classSensorList_a77039f3e9e4c3d2f5e286f93e0e162b3} 
+\index{SensorList@{SensorList}!jsonData@{jsonData}}
+\index{jsonData@{jsonData}!SensorList@{SensorList}}
+\doxysubsubsection{\texorpdfstring{jsonData}{jsonData}}
+{\footnotesize\ttfamily vector$<$Json\+::\+Value$>$ Sensor\+List\+::json\+Data}
+
+\Hypertarget{classSensorList_af5acc23a6777d9bc88694f43986f2ca6}\label{classSensorList_af5acc23a6777d9bc88694f43986f2ca6} 
+\index{SensorList@{SensorList}!names@{names}}
+\index{names@{names}!SensorList@{SensorList}}
+\doxysubsubsection{\texorpdfstring{names}{names}}
+{\footnotesize\ttfamily vector$<$string$>$ Sensor\+List\+::names}
+
+\Hypertarget{classSensorList_a04dc15433e4fedce325c76350e1d1fd4}\label{classSensorList_a04dc15433e4fedce325c76350e1d1fd4} 
+\index{SensorList@{SensorList}!stationId@{stationId}}
+\index{stationId@{stationId}!SensorList@{SensorList}}
+\doxysubsubsection{\texorpdfstring{stationId}{stationId}}
+{\footnotesize\ttfamily string Sensor\+List\+::station\+Id}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classes_8h}{classes.\+h}}\end{DoxyCompactItemize}

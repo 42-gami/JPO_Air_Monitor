@@ -1,0 +1,175 @@
+\doxysection{gui\+\_\+backend.\+h}
+\hypertarget{gui__backend_8h_source}{}\label{gui__backend_8h_source}\mbox{\hyperlink{gui__backend_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}imgui.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_glfw.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_opengl3.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}implot.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}implot\_internal.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ GL\_SILENCE\_DEPRECATION}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#if\ defined(IMGUI\_IMPL\_OPENGL\_ES2)}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <GLES2/gl2.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <GLFW/glfw3.h>}\ \textcolor{comment}{//\ Will\ drag\ system\ OpenGL\ headers}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\#include\ <cstdlib>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ \&\&\ (\_MSC\_VER\ >=\ 1900)\ \&\&\ !defined(IMGUI\_DISABLE\_WIN32\_FUNCTIONS)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}legacy\_stdio\_definitions"{})}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifdef\ \_\_EMSCRIPTEN\_\_}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}../libs/emscripten/emscripten\_mainloop\_stub.h"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glfw\_error\_callback(\textcolor{keywordtype}{int}\ error,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ description)}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}GLFW\ Error\ \%d:\ \%s\(\backslash\)n"{}},\ error,\ description);}
+\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classApp}{App}}\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classApp_a09e00faa058b338bf9892adbf3e5ef3d}{StartUp}}()\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>\mbox{\hyperlink{classApp_a09e00faa058b338bf9892adbf3e5ef3d}{StartUp}}();}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classApp_a7974a9839ad7c786ce1a0c93177aa59b}{Update}}()\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>\mbox{\hyperlink{classApp_a7974a9839ad7c786ce1a0c93177aa59b}{Update}}();}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classApp_a9e52361d3214d02bd861a59b3b1fadb0}{App}}()\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ glfwSetErrorCallback(glfw\_error\_callback);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!glfwInit())}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(1);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Decide\ GL+GLSL\ versions}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#if\ defined(IMGUI\_IMPL\_OPENGL\_ES2)}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ GL\ ES\ 2.0\ +\ GLSL\ 100\ (WebGL\ 1.0)}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ glsl\_version\ =\ \textcolor{stringliteral}{"{}\#version\ 100"{}};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR,\ 2);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR,\ 0);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_CLIENT\_API,\ GLFW\_OPENGL\_ES\_API);}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#elif\ defined(IMGUI\_IMPL\_OPENGL\_ES3)}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ GL\ ES\ 3.0\ +\ GLSL\ 300\ es\ (WebGL\ 2.0)}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ glsl\_version\ =\ \textcolor{stringliteral}{"{}\#version\ 300\ es"{}};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR,\ 3);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR,\ 0);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_CLIENT\_API,\ GLFW\_OPENGL\_ES\_API);}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#elif\ defined(\_\_APPLE\_\_)}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ GL\ 3.2\ +\ GLSL\ 150}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ glsl\_version\ =\ \textcolor{stringliteral}{"{}\#version\ 150"{}};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR,\ 3);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR,\ 2);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_OPENGL\_PROFILE,\ GLFW\_OPENGL\_CORE\_PROFILE);\ \ \textcolor{comment}{//\ 3.2+\ only}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_OPENGL\_FORWARD\_COMPAT,\ GL\_TRUE);\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Required\ on\ Mac}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#else}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ GL\ 3.0\ +\ GLSL\ 130}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ glsl\_version\ =\ \textcolor{stringliteral}{"{}\#version\ 130"{}};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR,\ 3);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR,\ 0);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//glfwWindowHint(GLFW\_OPENGL\_PROFILE,\ GLFW\_OPENGL\_CORE\_PROFILE);\ \ //\ 3.2+\ only}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//glfwWindowHint(GLFW\_OPENGL\_FORWARD\_COMPAT,\ GL\_TRUE);\ \ \ \ \ \ \ \ \ \ \ \ //\ 3.0+\ only}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ window\ with\ graphics\ context}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ window\ =\ glfwCreateWindow(720,\ 720,\ \textcolor{stringliteral}{"{}Air\ Monitor"{}},\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (window\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(1);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ glfwMakeContextCurrent(window);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ glfwSwapInterval(1);\ \textcolor{comment}{//\ Enable\ vsync}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setup\ Dear\ ImGui\ context}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ IMGUI\_CHECKVERSION();}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ ImGui::CreateContext();}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ ImPlot::CreateContext();\ \textcolor{comment}{//\ also\ ImPlot\ context}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ ImGuiIO\&\ io\ =\ ImGui::GetIO();\ (void)io;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ io.ConfigFlags\ |=\ ImGuiConfigFlags\_NavEnableKeyboard;\ \ \ \ \ \textcolor{comment}{//\ Enable\ Keyboard\ Controls}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ io.ConfigFlags\ |=\ ImGuiConfigFlags\_NavEnableGamepad;\ \ \ \ \ \ \textcolor{comment}{//\ Enable\ Gamepad\ Controls}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setup\ Dear\ ImGui\ style}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ ImGui::StyleColorsDark();}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ImGui::StyleColorsLight();}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setup\ Platform/Renderer\ backends}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ ImGui\_ImplGlfw\_InitForOpenGL(window,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ \_\_EMSCRIPTEN\_\_}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ ImGui\_ImplGlfw\_InstallEmscriptenCallbacks(window,\ \textcolor{stringliteral}{"{}\#canvas"{}});}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ ImGui\_ImplOpenGL3\_Init(glsl\_version);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Load\ Fonts}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ If\ no\ fonts\ are\ loaded,\ dear\ imgui\ will\ use\ the\ default\ font.\ You\ can\ also\ load\ multiple\ fonts\ and\ use\ ImGui::PushFont()/PopFont()\ to\ select\ them.}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ AddFontFromFileTTF()\ will\ return\ the\ ImFont*\ so\ you\ can\ store\ it\ if\ you\ need\ to\ select\ the\ font\ among\ multiple.}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ If\ the\ file\ cannot\ be\ loaded,\ the\ function\ will\ return\ a\ nullptr.\ Please\ handle\ those\ errors\ in\ your\ application\ (e.g.\ use\ an\ assertion,\ or\ display\ an\ error\ and\ quit).}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ The\ fonts\ will\ be\ rasterized\ at\ a\ given\ size\ (w/\ oversampling)\ and\ stored\ into\ a\ texture\ when\ calling\ ImFontAtlas::Build()/GetTexDataAsXXXX(),\ which\ ImGui\_ImplXXXX\_NewFrame\ below\ will\ call.}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ Use\ '\#define\ IMGUI\_ENABLE\_FREETYPE'\ in\ your\ imconfig\ file\ to\ use\ Freetype\ for\ higher\ quality\ font\ rendering.}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ Read\ 'docs/FONTS.md'\ for\ more\ instructions\ and\ details.}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ Remember\ that\ in\ C/C++\ if\ you\ want\ to\ include\ a\ backslash\ \(\backslash\)\ in\ a\ string\ literal\ you\ need\ to\ write\ a\ double\ backslash\ \(\backslash\)\(\backslash\)\ !}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ Our\ Emscripten\ build\ process\ allows\ embedding\ fonts\ to\ be\ accessible\ at\ runtime\ from\ the\ "{}fonts/"{}\ folder.\ See\ Makefile.emscripten\ for\ details.}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{comment}{//io.Fonts-\/>AddFontDefault();}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ ImFontConfig\ fontConfig;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ImWchar\ ranges[]\ =\ \{\ 0x0020,\ 0x007F,\ 0x00A0,\ 0x024F,\ 0\ \};\ \textcolor{comment}{//\ Latin\ and\ Polish\ characters}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"{}/home/hachikuji/Documents/Courier\_Prime/CourierPrime-\/Regular.ttf"{}},\ 18.0f,\ \&fontConfig,\ ranges);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{comment}{//io.Fonts-\/>AddFontFromFileTTF("{}../../misc/fonts/DroidSans.ttf"{},\ 16.0f);}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{comment}{//io.Fonts-\/>AddFontFromFileTTF("{}../../misc/fonts/Roboto-\/Medium.ttf"{},\ 16.0f);}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{comment}{//io.Fonts-\/>AddFontFromFileTTF("{}../../misc/fonts/Cousine-\/Regular.ttf"{},\ 15.0f);}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ImFont*\ font\ =\ io.Fonts-\/>AddFontFromFileTTF("{}c:\(\backslash\)\(\backslash\)Windows\(\backslash\)\(\backslash\)Fonts\(\backslash\)\(\backslash\)ArialUni.ttf"{},\ 18.0f,\ nullptr,\ io.Fonts-\/>GetGlyphRangesJapanese());}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//IM\_ASSERT(font\ !=\ nullptr);}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{classApp_a2c0e6e0b81ca91398206c433bc43b6ef}{\string~App}}()\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cleanup}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ ImGui\_ImplOpenGL3\_Shutdown();}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ ImGui\_ImplGlfw\_Shutdown();}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ ImPlot::DestroyContext();}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ ImGui::DestroyContext();}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ glfwDestroyWindow(window);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ glfwTerminate();}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classApp_a876642e1e04d05c80a8d272364b08a40}{Run}}()\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classApp_a09e00faa058b338bf9892adbf3e5ef3d}{StartUp}}();}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!glfwWindowShouldClose(window))\ \{}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ glfwPollEvents();}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ the\ Dear\ ImGui\ frame}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui\_ImplOpenGL3\_NewFrame();}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui\_ImplGlfw\_NewFrame();}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::NewFrame();}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classApp_a7974a9839ad7c786ce1a0c93177aa59b}{Update}}();}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Render();}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ display\_w,\ display\_h;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ glfwGetFramebufferSize(window,\ \&display\_w,\ \&display\_h);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ glViewport(0,\ 0,\ display\_w,\ display\_h);}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ glClearColor(\mbox{\hyperlink{classApp_a4412f3c664094364b35a0ccce9a34102}{clear\_color}}.x\ *\ \mbox{\hyperlink{classApp_a4412f3c664094364b35a0ccce9a34102}{clear\_color}}.w,\ \mbox{\hyperlink{classApp_a4412f3c664094364b35a0ccce9a34102}{clear\_color}}.y\ *\ \mbox{\hyperlink{classApp_a4412f3c664094364b35a0ccce9a34102}{clear\_color}}.w,\ \mbox{\hyperlink{classApp_a4412f3c664094364b35a0ccce9a34102}{clear\_color}}.z\ *\ \mbox{\hyperlink{classApp_a4412f3c664094364b35a0ccce9a34102}{clear\_color}}.w,\ \mbox{\hyperlink{classApp_a4412f3c664094364b35a0ccce9a34102}{clear\_color}}.w);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT);}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui\_ImplOpenGL3\_RenderDrawData(ImGui::GetDrawData());}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ glfwSwapBuffers(window);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ ImVec4\ \mbox{\hyperlink{classApp_a4412f3c664094364b35a0ccce9a34102}{clear\_color}}\ =\ ImVec4(0.0f,\ 0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{00167\ \ \ \ \ }
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00170\ \ \ \ \ GLFWwindow*\ window;}
+\DoxyCodeLine{00171\ \ \ \ \ }
+\DoxyCodeLine{00172\ \};}
+
+\end{DoxyCode}

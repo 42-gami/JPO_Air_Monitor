@@ -1,0 +1,230 @@
+\doxysection{Reading Class Reference}
+\hypertarget{classReading}{}\label{classReading}\index{Reading@{Reading}}
+
+
+Class used to extract relevant data from json-\/formatted string and make it compatible with the GUI. By default automatically calculates statistics when created.  
+
+
+
+
+{\ttfamily \#include $<$classes.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classReading_a6dce74773104164a2f4a819952940bef}{Reading}} ()
+\item 
+\mbox{\hyperlink{classReading_aaae3d74b11703453c1f6958f3d054d76}{Reading}} (string json\+String, string id)
+\item 
+bool \mbox{\hyperlink{classReading_a75f182b9733313302c915092bc3b44e5}{load\+Data}} (string json\+String)
+\item 
+void \mbox{\hyperlink{classReading_a2449dc9622c8e3f95826606b06a864c1}{prepare\+CStr\+Names}} ()
+\item 
+void \mbox{\hyperlink{classReading_ae794a04029295e649179210e29b9ed00}{prepare\+Timestamps}} ()
+\item 
+void \mbox{\hyperlink{classReading_a6a7b5ce3df81c9c5708a817a33e2f791}{find\+Min}} ()
+\item 
+void \mbox{\hyperlink{classReading_a56f7542a1775e1611282bb76323cc072}{find\+Max}} ()
+\item 
+void \mbox{\hyperlink{classReading_ab43e4ca7e4b86d8b844ae698ed9ad783}{find\+Average}} ()
+\item 
+bool \mbox{\hyperlink{classReading_a49982869d2c7f789c288924856d9d10a}{save\+Data}} (string project\+Root)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classReading_a10be2eee62ddd1062719b2eb87ae78b7}{param\+Name}}
+\item 
+string \mbox{\hyperlink{classReading_a577650500fcec49f01321a9d88e60555}{param\+Id}}
+\item 
+string \mbox{\hyperlink{classReading_a84b94ca5842699e402de41296be3920e}{json\+Data\+String}}
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{classReading_ad5a59515f42f20620424598fdd8069a8}{indices}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{classReading_a0a78fcbdce66ce8b2dee0606129f24d4}{dates}}
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{classReading_ae7569864112eb037d3500340ed9498c0}{date\+Timestamps}}
+\item 
+vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classReading_a83de1616d1aac8e3181372ca33318975}{c\+\_\+str\+Names}}
+\begin{DoxyCompactList}\small\item\em Necessary for displaying in Im\+Gui. Automatically created based on the std\+::string names. \end{DoxyCompactList}\item 
+Json\+::\+Value \mbox{\hyperlink{classReading_ad88f210764a51618b5208412df785295}{json\+Data}}
+\item 
+double \mbox{\hyperlink{classReading_a9135a08bb39a71da9c34e6aa89c3b339}{average}}
+\item 
+double \mbox{\hyperlink{classReading_aff986077658c4a3674f73b7bea38cd39}{min}}
+\item 
+string \mbox{\hyperlink{classReading_a9223034f72914c8b505b3a7e2e940e3f}{min\+Time}}
+\item 
+double \mbox{\hyperlink{classReading_a37137f73e4d6e1632bd9c353d7201656}{max}}
+\item 
+string \mbox{\hyperlink{classReading_aba3fc716cea65e172a4fd3fb35108c70}{max\+Time}}
+\item 
+string \mbox{\hyperlink{classReading_a8c815704533d077ec25892c3cc0fda6e}{trend}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class used to extract relevant data from json-\/formatted string and make it compatible with the GUI. By default automatically calculates statistics when created. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classReading_a6dce74773104164a2f4a819952940bef}\label{classReading_a6dce74773104164a2f4a819952940bef} 
+\index{Reading@{Reading}!Reading@{Reading}}
+\index{Reading@{Reading}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{Reading()}{Reading()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Reading\+::\+Reading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classReading_aaae3d74b11703453c1f6958f3d054d76}\label{classReading_aaae3d74b11703453c1f6958f3d054d76} 
+\index{Reading@{Reading}!Reading@{Reading}}
+\index{Reading@{Reading}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{Reading()}{Reading()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Reading\+::\+Reading (\begin{DoxyParamCaption}\item[{string}]{json\+String,  }\item[{string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classReading_ab43e4ca7e4b86d8b844ae698ed9ad783}\label{classReading_ab43e4ca7e4b86d8b844ae698ed9ad783} 
+\index{Reading@{Reading}!findAverage@{findAverage}}
+\index{findAverage@{findAverage}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{findAverage()}{findAverage()}}
+{\footnotesize\ttfamily void Reading\+::find\+Average (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classReading_a56f7542a1775e1611282bb76323cc072}\label{classReading_a56f7542a1775e1611282bb76323cc072} 
+\index{Reading@{Reading}!findMax@{findMax}}
+\index{findMax@{findMax}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{findMax()}{findMax()}}
+{\footnotesize\ttfamily void Reading\+::find\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classReading_a6a7b5ce3df81c9c5708a817a33e2f791}\label{classReading_a6a7b5ce3df81c9c5708a817a33e2f791} 
+\index{Reading@{Reading}!findMin@{findMin}}
+\index{findMin@{findMin}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{findMin()}{findMin()}}
+{\footnotesize\ttfamily void Reading\+::find\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classReading_a75f182b9733313302c915092bc3b44e5}\label{classReading_a75f182b9733313302c915092bc3b44e5} 
+\index{Reading@{Reading}!loadData@{loadData}}
+\index{loadData@{loadData}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{loadData()}{loadData()}}
+{\footnotesize\ttfamily bool Reading\+::load\+Data (\begin{DoxyParamCaption}\item[{string}]{json\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classReading_a2449dc9622c8e3f95826606b06a864c1}\label{classReading_a2449dc9622c8e3f95826606b06a864c1} 
+\index{Reading@{Reading}!prepareCStrNames@{prepareCStrNames}}
+\index{prepareCStrNames@{prepareCStrNames}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{prepareCStrNames()}{prepareCStrNames()}}
+{\footnotesize\ttfamily void Reading\+::prepare\+CStr\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classReading_ae794a04029295e649179210e29b9ed00}\label{classReading_ae794a04029295e649179210e29b9ed00} 
+\index{Reading@{Reading}!prepareTimestamps@{prepareTimestamps}}
+\index{prepareTimestamps@{prepareTimestamps}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{prepareTimestamps()}{prepareTimestamps()}}
+{\footnotesize\ttfamily void Reading\+::prepare\+Timestamps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classReading_a49982869d2c7f789c288924856d9d10a}\label{classReading_a49982869d2c7f789c288924856d9d10a} 
+\index{Reading@{Reading}!saveData@{saveData}}
+\index{saveData@{saveData}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{saveData()}{saveData()}}
+{\footnotesize\ttfamily bool Reading\+::save\+Data (\begin{DoxyParamCaption}\item[{string}]{project\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classReading_a9135a08bb39a71da9c34e6aa89c3b339}\label{classReading_a9135a08bb39a71da9c34e6aa89c3b339} 
+\index{Reading@{Reading}!average@{average}}
+\index{average@{average}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{average}{average}}
+{\footnotesize\ttfamily double Reading\+::average}
+
+\Hypertarget{classReading_a83de1616d1aac8e3181372ca33318975}\label{classReading_a83de1616d1aac8e3181372ca33318975} 
+\index{Reading@{Reading}!c\_strNames@{c\_strNames}}
+\index{c\_strNames@{c\_strNames}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{c\_strNames}{c\_strNames}}
+{\footnotesize\ttfamily vector$<$const char\texorpdfstring{$\ast$}{*}$>$ Reading\+::c\+\_\+str\+Names}
+
+
+
+Necessary for displaying in Im\+Gui. Automatically created based on the std\+::string names. 
+
+\Hypertarget{classReading_a0a78fcbdce66ce8b2dee0606129f24d4}\label{classReading_a0a78fcbdce66ce8b2dee0606129f24d4} 
+\index{Reading@{Reading}!dates@{dates}}
+\index{dates@{dates}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{dates}{dates}}
+{\footnotesize\ttfamily vector$<$string$>$ Reading\+::dates}
+
+\Hypertarget{classReading_ae7569864112eb037d3500340ed9498c0}\label{classReading_ae7569864112eb037d3500340ed9498c0} 
+\index{Reading@{Reading}!dateTimestamps@{dateTimestamps}}
+\index{dateTimestamps@{dateTimestamps}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{dateTimestamps}{dateTimestamps}}
+{\footnotesize\ttfamily vector$<$double$>$ Reading\+::date\+Timestamps}
+
+\Hypertarget{classReading_ad5a59515f42f20620424598fdd8069a8}\label{classReading_ad5a59515f42f20620424598fdd8069a8} 
+\index{Reading@{Reading}!indices@{indices}}
+\index{indices@{indices}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{indices}{indices}}
+{\footnotesize\ttfamily vector$<$double$>$ Reading\+::indices}
+
+\Hypertarget{classReading_ad88f210764a51618b5208412df785295}\label{classReading_ad88f210764a51618b5208412df785295} 
+\index{Reading@{Reading}!jsonData@{jsonData}}
+\index{jsonData@{jsonData}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{jsonData}{jsonData}}
+{\footnotesize\ttfamily Json\+::\+Value Reading\+::json\+Data}
+
+\Hypertarget{classReading_a84b94ca5842699e402de41296be3920e}\label{classReading_a84b94ca5842699e402de41296be3920e} 
+\index{Reading@{Reading}!jsonDataString@{jsonDataString}}
+\index{jsonDataString@{jsonDataString}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{jsonDataString}{jsonDataString}}
+{\footnotesize\ttfamily string Reading\+::json\+Data\+String}
+
+\Hypertarget{classReading_a37137f73e4d6e1632bd9c353d7201656}\label{classReading_a37137f73e4d6e1632bd9c353d7201656} 
+\index{Reading@{Reading}!max@{max}}
+\index{max@{max}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{max}{max}}
+{\footnotesize\ttfamily double Reading\+::max}
+
+\Hypertarget{classReading_aba3fc716cea65e172a4fd3fb35108c70}\label{classReading_aba3fc716cea65e172a4fd3fb35108c70} 
+\index{Reading@{Reading}!maxTime@{maxTime}}
+\index{maxTime@{maxTime}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{maxTime}{maxTime}}
+{\footnotesize\ttfamily string Reading\+::max\+Time}
+
+\Hypertarget{classReading_aff986077658c4a3674f73b7bea38cd39}\label{classReading_aff986077658c4a3674f73b7bea38cd39} 
+\index{Reading@{Reading}!min@{min}}
+\index{min@{min}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{min}{min}}
+{\footnotesize\ttfamily double Reading\+::min}
+
+\Hypertarget{classReading_a9223034f72914c8b505b3a7e2e940e3f}\label{classReading_a9223034f72914c8b505b3a7e2e940e3f} 
+\index{Reading@{Reading}!minTime@{minTime}}
+\index{minTime@{minTime}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{minTime}{minTime}}
+{\footnotesize\ttfamily string Reading\+::min\+Time}
+
+\Hypertarget{classReading_a577650500fcec49f01321a9d88e60555}\label{classReading_a577650500fcec49f01321a9d88e60555} 
+\index{Reading@{Reading}!paramId@{paramId}}
+\index{paramId@{paramId}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{paramId}{paramId}}
+{\footnotesize\ttfamily string Reading\+::param\+Id}
+
+\Hypertarget{classReading_a10be2eee62ddd1062719b2eb87ae78b7}\label{classReading_a10be2eee62ddd1062719b2eb87ae78b7} 
+\index{Reading@{Reading}!paramName@{paramName}}
+\index{paramName@{paramName}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{paramName}{paramName}}
+{\footnotesize\ttfamily string Reading\+::param\+Name}
+
+\Hypertarget{classReading_a8c815704533d077ec25892c3cc0fda6e}\label{classReading_a8c815704533d077ec25892c3cc0fda6e} 
+\index{Reading@{Reading}!trend@{trend}}
+\index{trend@{trend}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{trend}{trend}}
+{\footnotesize\ttfamily string Reading\+::trend}
+
+\Hypertarget{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}\label{classReading_a3ff8261cfa5ba880fc036b13eb8d2601} 
+\index{Reading@{Reading}!values@{values}}
+\index{values@{values}!Reading@{Reading}}
+\doxysubsubsection{\texorpdfstring{values}{values}}
+{\footnotesize\ttfamily vector$<$double$>$ Reading\+::values}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classes_8h}{classes.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,38 @@
+\doxysection{classes.\+h File Reference}
+\hypertarget{classes_8h}{}\label{classes_8h}\index{classes.h@{classes.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$json/json.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classGegr}{Gegr}}
+\begin{DoxyCompactList}\small\item\em Helper class for distance calculations. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classStationList}{Station\+List}}
+\begin{DoxyCompactList}\small\item\em Class used for converting data about stations into formats later passed to the GUI Created by a json-\/formatted string, it extracts all of the relevant information and loads it into vectors. It\textquotesingle{}s important to keep the vectors aligned. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classSensorList}{Sensor\+List}}
+\begin{DoxyCompactList}\small\item\em Class used to prepare data for display in the GUI. also stores data relevant to making further API calls for \doxylink{classReading}{Reading} objects. Created by json-\/formatted string. Must keep vectors aligned. Each corresponding index is for 1 Sensor. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classReading}{Reading}}
+\begin{DoxyCompactList}\small\item\em Class used to extract relevant data from json-\/formatted string and make it compatible with the GUI. By default automatically calculates statistics when created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classes_8h_a3e11f8c06291654e1a0f0205b3b3eb80}{convert\+Date\+To\+Timestamp}} (const std\+::string \&datetime)
+\begin{DoxyCompactList}\small\item\em helper function for converting date strings into unix timestamps \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{classes_8h_a3e11f8c06291654e1a0f0205b3b3eb80}\label{classes_8h_a3e11f8c06291654e1a0f0205b3b3eb80} 
+\index{classes.h@{classes.h}!convertDateToTimestamp@{convertDateToTimestamp}}
+\index{convertDateToTimestamp@{convertDateToTimestamp}!classes.h@{classes.h}}
+\doxysubsubsection{\texorpdfstring{convertDateToTimestamp()}{convertDateToTimestamp()}}
+{\footnotesize\ttfamily double convert\+Date\+To\+Timestamp (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{datetime }\end{DoxyParamCaption})}
+
+
+
+helper function for converting date strings into unix timestamps 
+

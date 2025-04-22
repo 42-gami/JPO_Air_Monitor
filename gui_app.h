@@ -11,6 +11,7 @@
 
 using namespace std;
 
+/// @brief Class responsible for presentation and coordination of all other elements of the program. 
 class myApp : public App<myApp> {
 public:
     const string stationsUrl = "https://api.gios.gov.pl/pjp-api/rest/station/findAll";
@@ -25,19 +26,7 @@ public:
     bool online = false; //this determines whether data is loaded from file or directly from API request
 
     
-    //Station currentStation;
-    //Sensor currentSensor;
-
-    //listofstationNamesCombo_cstr
-    
-    //jsonValue stationInfo
-    //listofSesors cstr
-    //jsonValue sensorInfo
-
-    //jsonValue readings 
-    //vector dates
-    //vector values
-
+    /// All states of the Gui. INVALID_STATE basically restarts the app.
     enum class AppState {
         STATION_MENU,
         SENSOR_MENU,
@@ -59,6 +48,8 @@ public:
     myApp() = default;
     ~myApp() = default;
 
+
+    /// @brief mainly used to check if REST API is reachable. Switches app to Offline mode when there is problems with connection.
     void StartUp() {
         cerr << projectRoot << endl;
         if (performCurlRequest(stationsUrl, stationListJson)) {
