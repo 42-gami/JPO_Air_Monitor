@@ -1,10 +1,15 @@
 #include <string>
 #include <vector>
 #include <optional>
+#include <filesystem>
+#include <fstream>
+#include <unistd.h>
 
 #include <curl/curl.h>
 #include <json/json.h>
 
+
+namespace fs = std::filesystem;
 using namespace std;
 
 /// @brief Function specifying the format of the output of a Curl request
@@ -95,4 +100,43 @@ string getStationDataString(string stationList, int index) {
 /// @return true if successful
 bool loadStationsOffline(string& response, string filePath = "") {
     return false;
+}
+
+string getRootLinux() {
+    char buffer[1024];
+    ssize_t len = readlink("/proc/self/exe", buffer, sizeof(buffer) - 1);
+    
+    if (len == -1) {
+        return "";
+    }
+    
+    buffer[len] = '\0';
+    std::filesystem::path exePath(buffer);
+    
+    std::filesystem::path rootPath = exePath.parent_path().parent_path();
+    
+    return rootPath.string();
+}
+
+void writeToFile(const std::string& filePath, const std::string& content) {
+    std::ofstream outFile(filePath);
+    if (outFile.is_open()) {
+        outFile << content;
+        outFile.close();
+    } else {
+        std::cerr << "Unable to open file for writing: " << filePath << "\n";
+    }
+}
+
+std::string readStringFromFile(const std::string& filePath) {
+    std::ifstream file(filePath);
+    if (!file.is_open()) {
+        std::cerr << "Error: Could not open file " << filePath << std::endl;
+        return "";
+    }
+
+    std::stringstream buffer;
+    buffer << file.rdbuf();
+
+    return buffer.str();
 }

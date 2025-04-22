@@ -17,6 +17,10 @@ public:
     const string sensorsUrlRoot = "https://api.gios.gov.pl/pjp-api/rest/station/sensors/"; //append stationId before using
     const string readingUrlRoot = "https://api.gios.gov.pl/pjp-api/rest/data/getData/"; //append sensorId before using
 
+    const string geolocationUrl = "http://ip-api.com/json/";
+
+    const string projectRoot = getRootLinux();
+    
     const char* errorMessage = "No errors yet"; //latest error will always be stored here
     bool online = false; //this determines whether data is loaded from file or directly from API request
 
@@ -56,6 +60,7 @@ public:
     ~myApp() = default;
 
     void StartUp() {
+        cerr << projectRoot << endl;
         if (performCurlRequest(stationsUrl, stationListJson)) {
             online = true;
         }  
@@ -131,7 +136,34 @@ public:
 };
 
 void myApp::showStationMenu() { //based on the below, station list must prepare the ids for further loads, and prepare json value to save station data to file
-    
+    if (online) {
+        if (ImGui::Button("Find station closest to you.")) {
+            string locJson;
+            double lat;
+            double lon;
+            if (performCurlRequest(geolocationUrl, locJson)) {
+                Json::Value root;
+                if (parseJsonResponse(locJson, root)) {
+                    lat = root["lat"].asDouble();
+                    lon = root["lon"].asDouble();
+                    currentStationList.selectNearestStation(Gegr(lat, lon));
+                    const string functionalUrl = sensorsUrlRoot + currentStationList.ids[currentStationList.index];
+                    if (performCurlRequest(functionalUrl, sensorListJson)) {
+                        currentSensorList = SensorList(sensorListJson);
+                        //cerr << currentSensorList.names[0] << endl;
+                        //cerr << sensorListJson << endl;
+                        appState = AppState::SENSOR_MENU;
+                    }
+                    else {
+                        appState = AppState::INVALID_STATE;
+                    }
+                }
+            }
+            else {
+                appState = AppState::INVALID_STATE;
+            }
+        }
+    }
     if (ImGui::Combo("Choose a station.", &currentStationList.index, currentStationList.c_strNames.data(), currentStationList.c_strNames.size())) {
         //if something is chosen
         //station list prepares json value in case of save
@@ -165,7 +197,7 @@ void myApp::showSensorMenu() { //consider checking if currentSensorList is actua
         if (online) {
             const string functionalUrl = readingUrlRoot + currentSensorList.ids[currentSensorList.index];
             if (performCurlRequest(functionalUrl, readingJson)) {
-                currentReading = Reading(readingJson);
+                currentReading = Reading(readingJson, currentSensorList.ids[currentSensorList.index]);
                 appState = AppState::READING_VIEW;
             }
             else {
@@ -179,23 +211,37 @@ void myApp::showSensorMenu() { //consider checking if currentSensorList is actua
 }
 
 void myApp::showReadingScreen() {
-    if (ImPlot::BeginPlot("Reading from sensor")) {
-        ImPlot::SetupAxes("Time", currentReading.paramName.c_str());
+    if (ImPlot::BeginPlot("##Reading from sensor")) {
+        static bool autoFitAxes = true;
+        ImGui::Checkbox("Fit axes", &autoFitAxes);
+
+        if (autoFitAxes) {
+        ImPlot::SetupAxes("Time", currentReading.paramName.c_str(),
+                          ImPlotAxisFlags_AutoFit, ImPlotAxisFlags_AutoFit);
+            } else {
+                ImPlot::SetupAxes("Time", currentReading.paramName.c_str());
+            }
         
         ImPlot::SetupAxisScale(ImAxis_X1, ImPlotScale_Time);
-        ImPlot::SetupAxisFormat(ImAxis_X1, "%H:%M\n%d-%m");
+        ImPlot::SetupAxisFormat(ImAxis_X1, "%H:%M\n%m-%d");
     
         ImPlot::PlotLine(currentReading.paramName.c_str(),
                          currentReading.dateTimestamps.data(),
                          currentReading.values.data(),
                          static_cast<int>(currentReading.values.size()));
-    
+        
+
+        ImGui::Separator();
+        ImGui::Text("Average: %.2f", currentReading.average);
+        ImGui::Text("Max value: %.2f at %s", currentReading.max, currentReading.maxTime.c_str());
+        ImGui::Text("Min value (non-zero): %.2f at %s", currentReading.min, currentReading.minTime.c_str());
+        ImGui::Separator();
         ImPlot::EndPlot();
     }
     
     if (online) {
         if (ImGui::Button("Save")) {
-            ImGui::Text("(¬.¬)");
+            currentReading.saveData(projectRoot);
         }
     }
 }
