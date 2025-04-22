@@ -12,6 +12,11 @@
 namespace fs = std::filesystem;
 using namespace std;
 
+/// \file utilities.h
+/// \brief Utility functions used by other parts of the program.
+///
+/// Used for things such as making API requests, parsing JSON and file operations.
+
 /// @brief Function specifying the format of the output of a Curl request
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp) {
     ((string*)userp)->append((char*)contents, size * nmemb);

@@ -11,19 +11,36 @@
 
 using namespace std;
 
+/// \file gui_app.h
+/// \brief Responsible for showing the UI, getting user input and coordinating everything else in the program
+
+
+/// \mainpage Air Quality Monitor
+/// Program used for monitoring air quality in Poland. It fetches data from the GIOS REST API and displays it in a user friendly format thanks to ImGui.
+
 /// @brief Class responsible for presentation and coordination of all other elements of the program. 
 class myApp : public App<myApp> {
 public:
+
+    /// \name Relevant Urls for the REST API
+    /// These are the Urls used for making API requests. Sensors and readings must be appended with correct ids before using.
+    /// @{
     const string stationsUrl = "https://api.gios.gov.pl/pjp-api/rest/station/findAll";
     const string sensorsUrlRoot = "https://api.gios.gov.pl/pjp-api/rest/station/sensors/"; //append stationId before using
     const string readingUrlRoot = "https://api.gios.gov.pl/pjp-api/rest/data/getData/"; //append sensorId before using
-
+    
     const string geolocationUrl = "http://ip-api.com/json/";
+    /// @}
 
+
+    /// @brief  This loads up the project root path
     const string projectRoot = getRootLinux();
     
-    const char* errorMessage = "No errors yet"; //latest error will always be stored here
-    bool online = false; //this determines whether data is loaded from file or directly from API request
+    /// latest error always stored in here
+    const char* errorMessage = "No errors yet";
+
+    ///Flag which determines whether json-formatted strings are acquired by API request or from file
+    bool online = false;
 
     
     /// All states of the Gui. INVALID_STATE basically restarts the app.
@@ -36,6 +53,10 @@ public:
 
     AppState appState = AppState::STATION_MENU;
 
+
+    /// \name Objects which hold and automatically calculate all of the currently used information.
+    /// Created from coresponding strings.
+    ///
     string stationListJson;
     StationList currentStationList;
 
@@ -44,6 +65,7 @@ public:
 
     string readingJson;
     Reading currentReading;
+    ///@}
 
     myApp() = default;
     ~myApp() = default;

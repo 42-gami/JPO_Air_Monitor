@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7eapp_0',['~App',['../classApp.html#a2c0e6e0b81ca91398206c433bc43b6ef',1,'App']]],
-  ['_7emyapp_1',['~myApp',['../classmyApp.html#a4c52fbda5daa9b4dc180c07649675027',1,'myApp']]]
+  ['writecallback_0',['WriteCallback',['../utilities_8h.html#aca9a64d478c64568f94626641c73bd30',1,'utilities.h']]],
+  ['writetofile_1',['writeToFile',['../utilities_8h.html#a43aa7b90193038a7bddec549313811ca',1,'utilities.h']]]
 ];

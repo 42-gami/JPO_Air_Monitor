@@ -10,6 +10,10 @@
 
 using namespace std;
 
+/// \file classes.h
+/// \brief All of the classes used for modifying and converting data.
+///
+/// Calculates statistics, modifies json data into appropriate formats used within the app and the GUI
 
 /// @brief Helper class for distance calculations.
 class Gegr {

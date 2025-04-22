@@ -57,6 +57,17 @@ void \mbox{\hyperlink{classApp_a876642e1e04d05c80a8d272364b08a40}{Run}} ()
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+const string \mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{project\+Root}} = \mbox{\hyperlink{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45}{get\+Root\+Linux}}()
+\begin{DoxyCompactList}\small\item\em This loads up the project root path. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{error\+Message}} = "{}No errors yet"{}
+\begin{DoxyCompactList}\small\item\em latest error always stored in here \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}} = false
+\begin{DoxyCompactList}\small\item\em Flag which determines whether json-\/formatted strings are acquired by API request or from file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{App\+State}} \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{app\+State}} = \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{App\+State\+::\+STATION\+\_\+\+MENU}}
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Relevant Urls for the REST API}\par
+{\em These are the Urls used for making API requests. Sensors and readings must be appended with correct ids before using. }\begin{DoxyCompactItemize}
+\item 
 const string \mbox{\hyperlink{classmyApp_a1b1fb34fef66f92b0b0da96a700da1d6}{stations\+Url}} = "{}https\+://api.\+gios.\+gov.\+pl/pjp-\/api/rest/station/find\+All"{}
 \item 
 const string \mbox{\hyperlink{classmyApp_adb50e32b8ede7ed7a5a6075052adf8d6}{sensors\+Url\+Root}} = "{}https\+://api.\+gios.\+gov.\+pl/pjp-\/api/rest/station/sensors/"{}
@@ -64,14 +75,10 @@ const string \mbox{\hyperlink{classmyApp_adb50e32b8ede7ed7a5a6075052adf8d6}{sens
 const string \mbox{\hyperlink{classmyApp_aab051ab584056f24efeab5393c293980}{reading\+Url\+Root}} = "{}https\+://api.\+gios.\+gov.\+pl/pjp-\/api/rest/data/get\+Data/"{}
 \item 
 const string \mbox{\hyperlink{classmyApp_ad108a4bd45fb52c30282e1b44036845a}{geolocation\+Url}} = "{}http\+://ip-\/api.\+com/json/"{}
-\item 
-const string \mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{project\+Root}} = \mbox{\hyperlink{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45}{get\+Root\+Linux}}()
-\item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{error\+Message}} = "{}No errors yet"{}
-\item 
-bool \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}} = false
-\item 
-\mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{App\+State}} \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{app\+State}} = \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{App\+State\+::\+STATION\+\_\+\+MENU}}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Objects which hold and automatically calculate all of the currently used information.}\par
+{\em Created from coresponding strings. }\begin{DoxyCompactItemize}
 \item 
 string \mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{station\+List\+Json}}
 \item 
@@ -85,6 +92,7 @@ string \mbox{\hyperlink{classmyApp_a2cb7b609c520cef919f1c2b9494136af}{reading\+J
 \item 
 \mbox{\hyperlink{classReading}{Reading}} \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{current\+Reading}}
 \end{DoxyCompactItemize}
+\end{Indent}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classApp}{App$<$ my\+App $>$}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -209,6 +217,10 @@ mainly used to check if REST API is reachable. Switches app to Offline mode when
 \doxysubsubsection{\texorpdfstring{errorMessage}{errorMessage}}
 {\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} my\+App\+::error\+Message = "{}No errors yet"{}}
 
+
+
+latest error always stored in here 
+
 \Hypertarget{classmyApp_ad108a4bd45fb52c30282e1b44036845a}\label{classmyApp_ad108a4bd45fb52c30282e1b44036845a} 
 \index{myApp@{myApp}!geolocationUrl@{geolocationUrl}}
 \index{geolocationUrl@{geolocationUrl}!myApp@{myApp}}
@@ -221,11 +233,19 @@ mainly used to check if REST API is reachable. Switches app to Offline mode when
 \doxysubsubsection{\texorpdfstring{online}{online}}
 {\footnotesize\ttfamily bool my\+App\+::online = false}
 
+
+
+Flag which determines whether json-\/formatted strings are acquired by API request or from file. 
+
 \Hypertarget{classmyApp_ab9a712b89f521c17d54954549d6d800e}\label{classmyApp_ab9a712b89f521c17d54954549d6d800e} 
 \index{myApp@{myApp}!projectRoot@{projectRoot}}
 \index{projectRoot@{projectRoot}!myApp@{myApp}}
 \doxysubsubsection{\texorpdfstring{projectRoot}{projectRoot}}
 {\footnotesize\ttfamily const string my\+App\+::project\+Root = \mbox{\hyperlink{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45}{get\+Root\+Linux}}()}
+
+
+
+This loads up the project root path. 
 
 \Hypertarget{classmyApp_a2cb7b609c520cef919f1c2b9494136af}\label{classmyApp_a2cb7b609c520cef919f1c2b9494136af} 
 \index{myApp@{myApp}!readingJson@{readingJson}}

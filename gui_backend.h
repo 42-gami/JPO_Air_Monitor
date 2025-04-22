@@ -12,8 +12,8 @@
 #if defined(IMGUI_IMPL_OPENGL_ES2)
 #include <GLES2/gl2.h>
 #endif
-#include <GLFW/glfw3.h> // Will drag system OpenGL headers
-//#include <cstdlib>
+#include <GLFW/glfw3.h>
+
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1900) && !defined(IMGUI_DISABLE_WIN32_FUNCTIONS)
 #pragma comment(lib, "legacy_stdio_definitions")
@@ -22,6 +22,10 @@
 #ifdef __EMSCRIPTEN__
 #include "../libs/emscripten/emscripten_mainloop_stub.h"
 #endif
+
+/// \file gui_backend.h
+/// \brief Boilerplate code for the GUI
+
 
 static void glfw_error_callback(int error, const char* description)
 {

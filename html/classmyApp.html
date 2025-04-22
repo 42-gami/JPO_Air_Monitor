@@ -135,6 +135,20 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:ab9a712b89f521c17d54954549d6d800e" id="r_ab9a712b89f521c17d54954549d6d800e"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9a712b89f521c17d54954549d6d800e">projectRoot</a> = <a class="el" href="utilities_8h.html#a5a65cc82d267d069ac82c4af30a29d45">getRootLinux</a>()</td></tr>
+<tr class="memdesc:ab9a712b89f521c17d54954549d6d800e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This loads up the project root path.  <br /></td></tr>
+<tr class="separator:ab9a712b89f521c17d54954549d6d800e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af512032ae5730c4cf1b58c0ab57a0f43" id="r_af512032ae5730c4cf1b58c0ab57a0f43"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af512032ae5730c4cf1b58c0ab57a0f43">errorMessage</a> = &quot;No errors yet&quot;</td></tr>
+<tr class="memdesc:af512032ae5730c4cf1b58c0ab57a0f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">latest error always stored in here  <br /></td></tr>
+<tr class="separator:af512032ae5730c4cf1b58c0ab57a0f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a084e07d9dd5c01a0a5fa312b44a1323d" id="r_a084e07d9dd5c01a0a5fa312b44a1323d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a084e07d9dd5c01a0a5fa312b44a1323d">online</a> = false</td></tr>
+<tr class="memdesc:a084e07d9dd5c01a0a5fa312b44a1323d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag which determines whether json-formatted strings are acquired by API request or from file.  <br /></td></tr>
+<tr class="separator:a084e07d9dd5c01a0a5fa312b44a1323d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a049b6247c8a39de1f226484bb948ec63" id="r_a049b6247c8a39de1f226484bb948ec63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ace14ce2f851c51e469c00f1ff36e530f">AppState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a049b6247c8a39de1f226484bb948ec63">appState</a> = <a class="el" href="#ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41">AppState::STATION_MENU</a></td></tr>
+<tr class="separator:a049b6247c8a39de1f226484bb948ec63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Relevant Urls for the REST API</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>These are the Urls used for making API requests. Sensors and readings must be appended with correct ids before using. </p>
+</div></td></tr>
 <tr class="memitem:a1b1fb34fef66f92b0b0da96a700da1d6" id="r_a1b1fb34fef66f92b0b0da96a700da1d6"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b1fb34fef66f92b0b0da96a700da1d6">stationsUrl</a> = &quot;https://api.gios.gov.pl/pjp-api/rest/station/findAll&quot;</td></tr>
 <tr class="separator:a1b1fb34fef66f92b0b0da96a700da1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb50e32b8ede7ed7a5a6075052adf8d6" id="r_adb50e32b8ede7ed7a5a6075052adf8d6"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb50e32b8ede7ed7a5a6075052adf8d6">sensorsUrlRoot</a> = &quot;https://api.gios.gov.pl/pjp-api/rest/station/sensors/&quot;</td></tr>
@@ -143,14 +157,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aab051ab584056f24efeab5393c293980"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad108a4bd45fb52c30282e1b44036845a" id="r_ad108a4bd45fb52c30282e1b44036845a"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad108a4bd45fb52c30282e1b44036845a">geolocationUrl</a> = &quot;http://ip-api.com/json/&quot;</td></tr>
 <tr class="separator:ad108a4bd45fb52c30282e1b44036845a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9a712b89f521c17d54954549d6d800e" id="r_ab9a712b89f521c17d54954549d6d800e"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9a712b89f521c17d54954549d6d800e">projectRoot</a> = <a class="el" href="utilities_8h.html#a5a65cc82d267d069ac82c4af30a29d45">getRootLinux</a>()</td></tr>
-<tr class="separator:ab9a712b89f521c17d54954549d6d800e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af512032ae5730c4cf1b58c0ab57a0f43" id="r_af512032ae5730c4cf1b58c0ab57a0f43"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af512032ae5730c4cf1b58c0ab57a0f43">errorMessage</a> = &quot;No errors yet&quot;</td></tr>
-<tr class="separator:af512032ae5730c4cf1b58c0ab57a0f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a084e07d9dd5c01a0a5fa312b44a1323d" id="r_a084e07d9dd5c01a0a5fa312b44a1323d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a084e07d9dd5c01a0a5fa312b44a1323d">online</a> = false</td></tr>
-<tr class="separator:a084e07d9dd5c01a0a5fa312b44a1323d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a049b6247c8a39de1f226484bb948ec63" id="r_a049b6247c8a39de1f226484bb948ec63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ace14ce2f851c51e469c00f1ff36e530f">AppState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a049b6247c8a39de1f226484bb948ec63">appState</a> = <a class="el" href="#ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41">AppState::STATION_MENU</a></td></tr>
-<tr class="separator:a049b6247c8a39de1f226484bb948ec63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Objects which hold and automatically calculate all of the currently used information.</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Created from coresponding strings. </p>
+</div></td></tr>
 <tr class="memitem:a6afd3f20cb3b5c2ecaa0b83a03510207" id="r_a6afd3f20cb3b5c2ecaa0b83a03510207"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6afd3f20cb3b5c2ecaa0b83a03510207">stationListJson</a></td></tr>
 <tr class="separator:a6afd3f20cb3b5c2ecaa0b83a03510207"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87dc551a1d50e5ee553520f889fe4781" id="r_a87dc551a1d50e5ee553520f889fe4781"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStationList.html">StationList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87dc551a1d50e5ee553520f889fe4781">currentStationList</a></td></tr>
@@ -424,6 +433,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>latest error always stored in here </p>
+
 </div>
 </div>
 <a id="ad108a4bd45fb52c30282e1b44036845a" name="ad108a4bd45fb52c30282e1b44036845a"></a>
@@ -452,6 +463,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Flag which determines whether json-formatted strings are acquired by API request or from file. </p>
+
 </div>
 </div>
 <a id="ab9a712b89f521c17d54954549d6d800e" name="ab9a712b89f521c17d54954549d6d800e"></a>
@@ -465,6 +478,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This loads up the project root path. </p>
 
 </div>
 </div>

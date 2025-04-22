@@ -15,114 +15,115 @@
 \DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
 \DoxyCodeLine{00013\ \textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{00014\ }
-\DoxyCodeLine{00016\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{utilities_8h_aca9a64d478c64568f94626641c73bd30}{WriteCallback}}(\textcolor{keywordtype}{void}*\ contents,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{size\_t}\ nmemb,\ \textcolor{keywordtype}{void}*\ userp)\ \{}
-\DoxyCodeLine{00017\ \ \ \ \ ((\textcolor{keywordtype}{string}*)userp)-\/>append((\textcolor{keywordtype}{char}*)contents,\ size\ *\ nmemb);}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{return}\ size\ *\ nmemb;}
-\DoxyCodeLine{00019\ \}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00025\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ url,\ \textcolor{keywordtype}{string}\&\ response)\ \{}
-\DoxyCodeLine{00026\ \ \ \ \ response.clear();}
-\DoxyCodeLine{00027\ \ \ \ \ CURL*\ curl\ =\ curl\_easy\_init();}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (!curl)\ \{}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ initialize\ CURL"{}}\ <<\ endl;}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00031\ \ \ \ \ \}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ curl\_easy\_setopt(curl,\ CURLOPT\_URL,\ url.c\_str());}
-\DoxyCodeLine{00034\ \ \ \ \ curl\_easy\_setopt(curl,\ CURLOPT\_WRITEFUNCTION,\ \mbox{\hyperlink{utilities_8h_aca9a64d478c64568f94626641c73bd30}{WriteCallback}});}
-\DoxyCodeLine{00035\ \ \ \ \ curl\_easy\_setopt(curl,\ CURLOPT\_WRITEDATA,\ \&response);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ CURLcode\ res\ =\ curl\_easy\_perform(curl);}
-\DoxyCodeLine{00038\ \ \ \ \ curl\_easy\_cleanup(curl);}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ !=\ CURLE\_OK)\ \{}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}curl\_easy\_perform()\ failed:\ "{}}\ <<\ curl\_easy\_strerror(res)\ <<\ endl;}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{utilities_8h_aca9a64d478c64568f94626641c73bd30}{WriteCallback}}(\textcolor{keywordtype}{void}*\ contents,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{size\_t}\ nmemb,\ \textcolor{keywordtype}{void}*\ userp)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ ((\textcolor{keywordtype}{string}*)userp)-\/>append((\textcolor{keywordtype}{char}*)contents,\ size\ *\ nmemb);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{return}\ size\ *\ nmemb;}
+\DoxyCodeLine{00024\ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ url,\ \textcolor{keywordtype}{string}\&\ response)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ response.clear();}
+\DoxyCodeLine{00032\ \ \ \ \ CURL*\ curl\ =\ curl\_easy\_init();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (!curl)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ initialize\ CURL"{}}\ <<\ endl;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ curl\_easy\_setopt(curl,\ CURLOPT\_URL,\ url.c\_str());}
+\DoxyCodeLine{00039\ \ \ \ \ curl\_easy\_setopt(curl,\ CURLOPT\_WRITEFUNCTION,\ \mbox{\hyperlink{utilities_8h_aca9a64d478c64568f94626641c73bd30}{WriteCallback}});}
+\DoxyCodeLine{00040\ \ \ \ \ curl\_easy\_setopt(curl,\ CURLOPT\_WRITEDATA,\ \&response);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ CURLcode\ res\ =\ curl\_easy\_perform(curl);}
+\DoxyCodeLine{00043\ \ \ \ \ curl\_easy\_cleanup(curl);}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00046\ \}}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00052\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ jsonResponse,\ Json::Value\&\ parsedRoot)\ \{}
-\DoxyCodeLine{00053\ \ \ \ \ Json::Reader\ reader;}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ parsingSuccessful\ =\ reader.parse(jsonResponse,\ parsedRoot);}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (!parsingSuccessful)\ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ parse\ JSON:\ "{}}\ <<\ endl;}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (res\ !=\ CURLE\_OK)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}curl\_easy\_perform()\ failed:\ "{}}\ <<\ curl\_easy\_strerror(res)\ <<\ endl;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00051\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ jsonResponse,\ Json::Value\&\ parsedRoot)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ Json::Reader\ reader;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ parsingSuccessful\ =\ reader.parse(jsonResponse,\ parsedRoot);}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00063\ \}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00068\ optional<vector<string>>\ \mbox{\hyperlink{utilities_8h_aa6a4837e4a9477e03fed90329998c7e7}{generateStationList}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ jsonString)\ \{}
-\DoxyCodeLine{00069\ \ \ \ \ vector<string>\ stationList;}
-\DoxyCodeLine{00070\ \ \ \ \ Json::Value\ root;}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(jsonString,\ root))\ \{}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ stationData\ :\ root)\ \{}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stationData.isMember(\textcolor{stringliteral}{"{}stationName"{}}))\ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stationList.push\_back(stationData[\textcolor{stringliteral}{"{}stationName"{}}].asString());}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ stationList;}
-\DoxyCodeLine{00078\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nullopt;}
-\DoxyCodeLine{00080\ \ \ \ \ \}}
-\DoxyCodeLine{00081\ \}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00087\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{utilities_8h_a402c459c34da3447ff58de9627432197}{getStationDataString}}(\textcolor{keywordtype}{string}\ stationList,\ \textcolor{keywordtype}{int}\ index)\ \{}
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{string}\ stationData\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00089\ \ \ \ \ Json::Value\ root;}
-\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(stationList,\ root);}
-\DoxyCodeLine{00091\ \ \ \ \ Json::FastWriter\ fastWriter;}
-\DoxyCodeLine{00092\ \ \ \ \ stationData\ =\ fastWriter.write(root[index]);}
-\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{return}\ stationData;}
-\DoxyCodeLine{00094\ \}}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00100\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utilities_8h_a687c8116f837493d0927f1ae71f6f54f}{loadStationsOffline}}(\textcolor{keywordtype}{string}\&\ response,\ \textcolor{keywordtype}{string}\ filePath\ =\ \textcolor{stringliteral}{"{}"{}})\ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00102\ \}}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00107\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45}{getRootLinux}}()\ \{}
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[1024];}
-\DoxyCodeLine{00109\ \ \ \ \ ssize\_t\ len\ =\ readlink(\textcolor{stringliteral}{"{}/proc/self/exe"{}},\ buffer,\ \textcolor{keyword}{sizeof}(buffer)\ -\/\ 1);}
-\DoxyCodeLine{00110\ \ \ \ \ }
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{if}\ (len\ ==\ -\/1)\ \{}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00113\ \ \ \ \ \}}
-\DoxyCodeLine{00114\ \ \ \ \ }
-\DoxyCodeLine{00115\ \ \ \ \ buffer[len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00116\ \ \ \ \ std::filesystem::path\ exePath(buffer);}
-\DoxyCodeLine{00117\ \ \ \ \ }
-\DoxyCodeLine{00118\ \ \ \ \ std::filesystem::path\ rootPath\ =\ exePath.parent\_path().parent\_path();}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (!parsingSuccessful)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ parse\ JSON:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00068\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ optional<vector<string>>\ \mbox{\hyperlink{utilities_8h_aa6a4837e4a9477e03fed90329998c7e7}{generateStationList}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ jsonString)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ vector<string>\ stationList;}
+\DoxyCodeLine{00075\ \ \ \ \ Json::Value\ root;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(jsonString,\ root))\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ stationData\ :\ root)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (stationData.isMember(\textcolor{stringliteral}{"{}stationName"{}}))\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stationList.push\_back(stationData[\textcolor{stringliteral}{"{}stationName"{}}].asString());}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ stationList;}
+\DoxyCodeLine{00083\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nullopt;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{utilities_8h_a402c459c34da3447ff58de9627432197}{getStationDataString}}(\textcolor{keywordtype}{string}\ stationList,\ \textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{string}\ stationData\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00094\ \ \ \ \ Json::Value\ root;}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(stationList,\ root);}
+\DoxyCodeLine{00096\ \ \ \ \ Json::FastWriter\ fastWriter;}
+\DoxyCodeLine{00097\ \ \ \ \ stationData\ =\ fastWriter.write(root[index]);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{return}\ stationData;}
+\DoxyCodeLine{00099\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utilities_8h_a687c8116f837493d0927f1ae71f6f54f}{loadStationsOffline}}(\textcolor{keywordtype}{string}\&\ response,\ \textcolor{keywordtype}{string}\ filePath\ =\ \textcolor{stringliteral}{"{}"{}})\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00107\ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45}{getRootLinux}}()\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[1024];}
+\DoxyCodeLine{00114\ \ \ \ \ ssize\_t\ len\ =\ readlink(\textcolor{stringliteral}{"{}/proc/self/exe"{}},\ buffer,\ \textcolor{keyword}{sizeof}(buffer)\ -\/\ 1);}
+\DoxyCodeLine{00115\ \ \ \ \ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{if}\ (len\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
 \DoxyCodeLine{00119\ \ \ \ \ }
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ rootPath.string();}
-\DoxyCodeLine{00121\ \}}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utilities_8h_a43aa7b90193038a7bddec549313811ca}{writeToFile}}(\textcolor{keyword}{const}\ std::string\&\ filePath,\ \textcolor{keyword}{const}\ std::string\&\ content)\ \{}
-\DoxyCodeLine{00128\ \ \ \ \ std::ofstream\ outFile(filePath);}
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{if}\ (outFile.is\_open())\ \{}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ outFile\ <<\ content;}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ outFile.close();}
-\DoxyCodeLine{00132\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Unable\ to\ open\ file\ for\ writing:\ "{}}\ <<\ filePath\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00134\ \ \ \ \ \}}
-\DoxyCodeLine{00135\ \}}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00139\ std::string\ \mbox{\hyperlink{utilities_8h_af6b2a1eb85ed995b2bd4369d8da9a5d7}{readStringFromFile}}(\textcolor{keyword}{const}\ std::string\&\ filePath)\ \{}
-\DoxyCodeLine{00140\ \ \ \ \ std::ifstream\ file(filePath);}
-\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())\ \{}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ open\ file\ "{}}\ <<\ filePath\ <<\ std::endl;}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00144\ \ \ \ \ \}}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \ \ \ \ std::stringstream\ buffer;}
-\DoxyCodeLine{00147\ \ \ \ \ buffer\ <<\ file.rdbuf();}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{return}\ buffer.str();}
-\DoxyCodeLine{00150\ \}}
+\DoxyCodeLine{00120\ \ \ \ \ buffer[len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00121\ \ \ \ \ std::filesystem::path\ exePath(buffer);}
+\DoxyCodeLine{00122\ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ std::filesystem::path\ rootPath\ =\ exePath.parent\_path().parent\_path();}
+\DoxyCodeLine{00124\ \ \ \ \ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ rootPath.string();}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utilities_8h_a43aa7b90193038a7bddec549313811ca}{writeToFile}}(\textcolor{keyword}{const}\ std::string\&\ filePath,\ \textcolor{keyword}{const}\ std::string\&\ content)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ std::ofstream\ outFile(filePath);}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{if}\ (outFile.is\_open())\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ outFile\ <<\ content;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ outFile.close();}
+\DoxyCodeLine{00137\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Unable\ to\ open\ file\ for\ writing:\ "{}}\ <<\ filePath\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00144\ std::string\ \mbox{\hyperlink{utilities_8h_af6b2a1eb85ed995b2bd4369d8da9a5d7}{readStringFromFile}}(\textcolor{keyword}{const}\ std::string\&\ filePath)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ std::ifstream\ file(filePath);}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ open\ file\ "{}}\ <<\ filePath\ <<\ std::endl;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ std::stringstream\ buffer;}
+\DoxyCodeLine{00152\ \ \ \ \ buffer\ <<\ file.rdbuf();}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return}\ buffer.str();}
+\DoxyCodeLine{00155\ \}}
 
 \end{DoxyCode}
