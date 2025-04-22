@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iomanip>
 #include <cmath>
+#include <unordered_set>
 
 #include <json/json.h>
 
@@ -103,6 +104,29 @@ public:
             }
         }
     }
+
+    void saveData(string projectRoot) {
+        string filePath = projectRoot + "/saves/stations.json";
+
+        string jsonOfflineData = readStringFromFile(filePath);
+        Json::Value root;
+        bool append = true;
+
+        if (parseJsonResponse(jsonOfflineData, root)) {
+            for (const auto& station : root) {
+                if (station.isMember("id") && station["id"].asString() == ids[index]) {
+                    append = false;
+                    break;
+                }
+            }
+            if (append) {
+                root.append(jsonData[index]);
+                Json::StreamWriterBuilder writer;
+                std::string updatedJsonString = Json::writeString(writer, root);
+                writeToFile(filePath, updatedJsonString);
+            }
+        }
+    }
 };
 
 
@@ -149,6 +173,65 @@ public:
         c_strNames.clear();
         for (const auto& name : names) {
             c_strNames.push_back(name.c_str());
+        }
+    }
+
+    bool saveData(string projectRoot) {
+        string filePath = projectRoot + "/saves/sensors/s" + stationId + ".json";
+        
+        // Check if index is valid
+        if (index < 0 || index >= jsonData.size()) {
+            return false;
+        }
+        
+        if (std::filesystem::exists(filePath)) {
+            string jsonFileContent = readStringFromFile(filePath);
+            Json::Value existingSensors;
+            
+            if (parseJsonResponse(jsonFileContent, existingSensors)) {
+                // Check if sensor with this ID already exists in the file
+                bool sensorExists = false;
+                string currentId = jsonData[index]["id"].asString();
+                
+                for (const auto& sensor : existingSensors) {
+                    if (sensor.isMember("id") && sensor["id"].asString() == currentId) {
+                        sensorExists = true;
+                        break;
+                    }
+                }
+                
+                if (!sensorExists) {
+                    // Append the current sensor data to existing sensors
+                    existingSensors.append(jsonData[index]);
+                    
+                    // Convert to string and write back to file
+                    Json::StreamWriterBuilder writer;
+                    string updatedJsonString = Json::writeString(writer, existingSensors);
+                    writeToFile(filePath, updatedJsonString);
+                }
+                
+                return true;
+            } else {
+                // Parsing failed, create new file with just this sensor
+                Json::Value newSensors(Json::arrayValue);
+                newSensors.append(jsonData[index]);
+                
+                Json::StreamWriterBuilder writer;
+                string newJsonString = Json::writeString(writer, newSensors);
+                writeToFile(filePath, newJsonString);
+                
+                return true;
+            }
+        } else {
+            // File doesn't exist, create it with just this sensor
+            Json::Value newSensors(Json::arrayValue);
+            newSensors.append(jsonData[index]);
+            
+            Json::StreamWriterBuilder writer;
+            string newJsonString = Json::writeString(writer, newSensors);
+            writeToFile(filePath, newJsonString);
+            
+            return true;
         }
     }
 };
@@ -267,15 +350,50 @@ public:
         average = sum / values.size();
     }
 
+
     bool saveData(string projectRoot) {
         string filePath = projectRoot + "/saves/readings/r" + paramId + ".json";
+        
         if (std::filesystem::exists(filePath)) {
             string jsonDataFile = readStringFromFile(filePath);
-            Json::Value root;
-            if (parseJsonResponse(jsonDataFile, root)) {
-                return false;
-            }
-            else {
+            Json::Value existingRoot;
+            
+            if (parseJsonResponse(jsonDataFile, existingRoot)) {
+                Json::Value existingValues = existingRoot["values"];
+                Json::Value newValues = jsonData;
+                
+                std::unordered_set<std::string> existingDates;
+                for (const auto& value : existingValues) {
+                    existingDates.insert(value["date"].asString());
+                }
+                
+                for (int i = newValues.size() - 1; i >= 0; --i) {
+                    std::string valueDate = newValues[i]["date"].asString();
+                    if (existingDates.find(valueDate) == existingDates.end()) {
+                        Json::Value updatedValues;
+                        updatedValues.append(newValues[i]);
+                        
+                        for (const auto& value : existingValues) {
+                            updatedValues.append(value);
+                        }
+                        
+                        existingValues = updatedValues;
+                        existingDates.insert(valueDate);
+                    }
+                }
+                
+                existingRoot["values"] = existingValues;
+                
+                if (!existingRoot.isMember("key") && !paramName.empty()) {
+                    existingRoot["key"] = paramName;
+                }
+                
+                Json::StreamWriterBuilder writer;
+                std::string updatedJsonString = Json::writeString(writer, existingRoot);
+                writeToFile(filePath, updatedJsonString);
+                
+                return true;
+            } else {
                 return false;
             }
         } else {
@@ -283,5 +401,7 @@ public:
             return true;
         }
     }
+    
+    
 };
 

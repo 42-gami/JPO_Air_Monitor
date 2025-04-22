@@ -141,7 +141,7 @@ void writeToFile(const std::string& filePath, const std::string& content) {
 
 /// @brief writes contents of specified file to string
 /// @param filePath full absolute path to file
-std::string readStringFromFile(const std::string& filePath) {
+string readStringFromFile(const std::string& filePath) {
     std::ifstream file(filePath);
     if (!file.is_open()) {
         std::cerr << "Error: Could not open file " << filePath << std::endl;

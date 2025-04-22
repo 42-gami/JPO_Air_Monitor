@@ -73,14 +73,16 @@ public:
 
     /// @brief mainly used to check if REST API is reachable. Switches app to Offline mode when there is problems with connection.
     void StartUp() {
-        cerr << projectRoot << endl;
+        //cerr << projectRoot << endl;
         if (performCurlRequest(stationsUrl, stationListJson)) {
             online = true;
         }  
         else {
-            if (loadStationsOffline(stationListJson)) {
+            string stationFilePath = projectRoot + "/saves/stations.json";
+    
+            if (std::filesystem::exists(stationFilePath)) {
+                stationListJson = readStringFromFile(stationFilePath);
                 online = false;
-                //create station list object
             }
             else {
                 appState = AppState::INVALID_STATE;
@@ -148,7 +150,7 @@ public:
     void showReadingScreen();
 };
 
-void myApp::showStationMenu() { //based on the below, station list must prepare the ids for further loads, and prepare json value to save station data to file
+void myApp::showStationMenu() {
     if (online) {
         if (ImGui::Button("Find station closest to you.")) {
             string locJson;
@@ -163,8 +165,6 @@ void myApp::showStationMenu() { //based on the below, station list must prepare 
                     const string functionalUrl = sensorsUrlRoot + currentStationList.ids[currentStationList.index];
                     if (performCurlRequest(functionalUrl, sensorListJson)) {
                         currentSensorList = SensorList(sensorListJson);
-                        //cerr << currentSensorList.names[0] << endl;
-                        //cerr << sensorListJson << endl;
                         appState = AppState::SENSOR_MENU;
                     }
                     else {
@@ -178,9 +178,7 @@ void myApp::showStationMenu() { //based on the below, station list must prepare 
         }
     }
     if (ImGui::Combo("Choose a station.", &currentStationList.index, currentStationList.c_strNames.data(), currentStationList.c_strNames.size())) {
-        //if something is chosen
-        //station list prepares json value in case of save
-        //cerr << "requesting" << currentStationList.ids[currentStationList.index] << endl;
+
         if (online) {
             const string functionalUrl = sensorsUrlRoot + currentStationList.ids[currentStationList.index];
             //cerr << functionalUrl << endl;
@@ -195,7 +193,16 @@ void myApp::showStationMenu() { //based on the below, station list must prepare 
             }
         }
         else {
-            //loads sensors from file, creates object
+            string sensorFilePath = projectRoot + "/saves/sensors/s" + currentStationList.ids[currentStationList.index] + ".json";
+    
+            if (std::filesystem::exists(sensorFilePath)) {
+                sensorListJson = readStringFromFile(sensorFilePath);
+                currentSensorList = SensorList(sensorListJson);
+                appState = AppState::SENSOR_MENU;
+            }
+            else {
+                appState = AppState::INVALID_STATE;
+            }
         }
         //set sensors array
         //next state
@@ -210,6 +217,7 @@ void myApp::showSensorMenu() { //consider checking if currentSensorList is actua
         if (online) {
             const string functionalUrl = readingUrlRoot + currentSensorList.ids[currentSensorList.index];
             if (performCurlRequest(functionalUrl, readingJson)) {
+                //cerr << functionalUrl << endl;
                 currentReading = Reading(readingJson, currentSensorList.ids[currentSensorList.index]);
                 appState = AppState::READING_VIEW;
             }
@@ -218,7 +226,16 @@ void myApp::showSensorMenu() { //consider checking if currentSensorList is actua
             }
         }
         else {
-            //load readings from file
+            string readingFilePath = projectRoot + "/saves/readings/r" + currentSensorList.ids[currentStationList.index] + ".json";
+    
+            if (std::filesystem::exists(readingFilePath)) {
+                readingJson = readStringFromFile(readingFilePath);
+                currentReading = Reading(readingJson, currentSensorList.ids[currentSensorList.index]);
+                appState = AppState::READING_VIEW;
+            }
+            else {
+                appState = AppState::INVALID_STATE;
+            }
         }
     }
 }
@@ -254,7 +271,11 @@ void myApp::showReadingScreen() {
     
     if (online) {
         if (ImGui::Button("Save")) {
-            currentReading.saveData(projectRoot);
+            if (currentReading.saveData(projectRoot)) {
+                if (currentSensorList.saveData(projectRoot)) {
+                    currentStationList.saveData(projectRoot);
+                }
+            }
         }
     }
 }

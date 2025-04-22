@@ -58,7 +58,8 @@
         "codecvt": "cpp",
         "ratio": "cpp",
         "fstream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "unordered_set": "cpp"
     },
     "cmake.sourceDirectory": "/home/hachikuji/Documents/project_jpo/subprojects/glfw"
 }

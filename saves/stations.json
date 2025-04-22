@@ -1,0 +1,38 @@
+[
+	{
+		"addressStreet" : "ul. Szwajcarska",
+		"city" : 
+		{
+			"commune" : 
+			{
+				"communeName" : "Pozna\u0144",
+				"districtName" : "Pozna\u0144",
+				"provinceName" : "WIELKOPOLSKIE"
+			},
+			"id" : 729,
+			"name" : "Pozna\u0144"
+		},
+		"gegrLat" : "52.390879",
+		"gegrLon" : "16.998053",
+		"id" : 16493,
+		"stationName" : "Pozna\u0144 ul. Szwajcarska"
+	},
+	{
+		"addressStreet" : "ul. \u017b\u00f3\u0142kiewskiego",
+		"city" : 
+		{
+			"commune" : 
+			{
+				"communeName" : "Ko\u0142obrzeg",
+				"districtName" : "ko\u0142obrzeski",
+				"provinceName" : "ZACHODNIOPOMORSKIE"
+			},
+			"id" : 386,
+			"name" : "Ko\u0142obrzeg"
+		},
+		"gegrLat" : "54.179381",
+		"gegrLon" : "15.596347",
+		"id" : 10934,
+		"stationName" : "Ko\u0142obrzeg, ul. \u017b\u00f3\u0142kiewskiego"
+	}
+]
