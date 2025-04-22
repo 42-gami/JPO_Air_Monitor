@@ -1,0 +1,13 @@
+[
+	{
+		"id" : 20176,
+		"param" : 
+		{
+			"idParam" : 69,
+			"paramCode" : "PM2.5",
+			"paramFormula" : "PM2.5",
+			"paramName" : "py\u0142 zawieszony PM2.5"
+		},
+		"stationId" : 944
+	}
+]

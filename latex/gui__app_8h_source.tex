@@ -30,219 +30,283 @@
 \DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{projectRoot}}\ =\ \mbox{\hyperlink{utilities_8h_a5a65cc82d267d069ac82c4af30a29d45}{getRootLinux}}();}
 \DoxyCodeLine{00038\ \ \ \ \ }
 \DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{errorMessage}}\ =\ \textcolor{stringliteral}{"{}No\ errors\ yet"{}};}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{AppState}}\ \{}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{STATION\_MENU}},}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}{SENSOR\_MENU}},}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}{READING\_VIEW}},}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{INVALID\_STATE}}}
-\DoxyCodeLine{00052\ \ \ \ \ \};}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{AppState}}\ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{AppState::STATION\_MENU}};}
-\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad}{showError}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{AppState}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{STATION\_MENU}},}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}{SENSOR\_MENU}},}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}{READING\_VIEW}},}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{INVALID\_STATE}}}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{AppState}}\ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{AppState::STATION\_MENU}};}
 \DoxyCodeLine{00056\ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{stationListJson}};}
-\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classStationList}{StationList}}\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}};}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}};}
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classSensorList}{SensorList}}\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}};}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classmyApp_a2cb7b609c520cef919f1c2b9494136af}{readingJson}};}
-\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{classReading}{Reading}}\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}};}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{classmyApp_ad4c6bd0792bfe2cc190be5f37e0734a1}{myApp}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classmyApp_a4c52fbda5daa9b4dc180c07649675027}{\string~myApp}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{stationListJson}};}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classStationList}{StationList}}\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}};}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classSensorList}{SensorList}}\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classmyApp_a2cb7b609c520cef919f1c2b9494136af}{readingJson}};}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classReading}{Reading}}\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classmyApp_ad4c6bd0792bfe2cc190be5f37e0734a1}{myApp}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{classmyApp_a4c52fbda5daa9b4dc180c07649675027}{\string~myApp}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00073\ }
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_aae693ab1f1de6aaa60951e196d1c1a50}{StartUp}}()\ \{}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ cerr\ <<\ \mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{projectRoot}}\ <<\ endl;}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(\mbox{\hyperlink{classmyApp_a1b1fb34fef66f92b0b0da96a700da1d6}{stationsUrl}},\ \mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{stationListJson}}))\ \{}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}\ \ }
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_a687c8116f837493d0927f1ae71f6f54f}{loadStationsOffline}}(\mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{stationListJson}}))\ \{}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//create\ station\ list\ object}}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}\ =\ \mbox{\hyperlink{classStationList}{StationList}}(\mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{stationListJson}});}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{AppState::STATION\_MENU}};}
-\DoxyCodeLine{00092\ \ \ \ \ \}}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a87910811149ef621b1368bda62826890}{Update}}()\ \{}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ ImVec2\ viewportSize\ =\ ImGui::GetIO().DisplaySize;}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ ImGui::SetNextWindowSize(viewportSize);}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ ImGui::SetNextWindowPos(ImVec2(0,\ 0));}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}FullScreenWindow"{}},\ NULL,\ \textcolor{comment}{//create\ window\ spanning\ the\ entire\ viewport}}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoBackground\ |\ }
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoDecoration\ |\ }
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoTitleBar\ |\ }
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoResize\ |\ }
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoMove\ |}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoBringToFrontOnFocus);}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Go\ Online"{}}))\ \{}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_aae693ab1f1de6aaa60951e196d1c1a50}{StartUp}}();}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}})\ \{}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{AppState::STATION\_MENU}}:\ \{}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{showStationMenu}}();}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_aae693ab1f1de6aaa60951e196d1c1a50}{StartUp}}()\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ projectRoot\ <<\ endl;}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(\mbox{\hyperlink{classmyApp_a1b1fb34fef66f92b0b0da96a700da1d6}{stationsUrl}},\ \mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{stationListJson}}))\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}\ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ stationFilePath\ =\ \mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{projectRoot}}\ +\ \textcolor{stringliteral}{"{}/saves/stations.json"{}};}
+\DoxyCodeLine{00083\ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::filesystem::exists(stationFilePath))\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{stationListJson}}\ =\ \mbox{\hyperlink{utilities_8h_a682cbbdd25ab4fdc0e028a1936a76567}{readStringFromFile}}(stationFilePath);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{errorMessage}}\ =\ \textcolor{stringliteral}{"{}Couldn't\ find\ station\ file!"{}};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad}{showError}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}\ =\ \mbox{\hyperlink{classStationList}{StationList}}(\mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{stationListJson}});}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{AppState::STATION\_MENU}};}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a87910811149ef621b1368bda62826890}{Update}}()\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ ImVec2\ viewportSize\ =\ ImGui::GetIO().DisplaySize;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ ImGui::SetNextWindowSize(viewportSize);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ ImGui::SetNextWindowPos(ImVec2(0,\ 0));}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}FullScreenWindow"{}},\ NULL,\ \textcolor{comment}{//create\ window\ spanning\ the\ entire\ viewport}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoBackground\ |\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoDecoration\ |\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoTitleBar\ |\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoResize\ |\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoMove\ |}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiWindowFlags\_NoBringToFrontOnFocus);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}})\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Go\ Online"{}}))\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_aae693ab1f1de6aaa60951e196d1c1a50}{StartUp}}();}
 \DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}{AppState::SENSOR\_MENU}}:\ \{}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{showStationMenu}}();}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}{showSensorMenu}}();}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}{AppState::READING\_VIEW}}:\ \{}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{showStationMenu}}();}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}{showSensorMenu}}();}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}}:\ \{}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Text(\mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{errorMessage}});}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_aae693ab1f1de6aaa60951e196d1c1a50}{StartUp}}();}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \{}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ ImGui::End();}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ ==\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}{AppState::READING\_VIEW}})\ \{}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Readings\ from\ sensor"{}});}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a95ccb2886332332807e10bf3097f2d6f}{showReadingScreen}}();}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::End();}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00144\ \ \ \ \ \}}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{showStationMenu}}();}
-\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}{showSensorMenu}}();}
-\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a95ccb2886332332807e10bf3097f2d6f}{showReadingScreen}}();}
-\DoxyCodeLine{00149\ \};}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{myApp::showStationMenu}}()\ \{\ \textcolor{comment}{//based\ on\ the\ below,\ station\ list\ must\ prepare\ the\ ids\ for\ further\ loads,\ and\ prepare\ json\ value\ to\ save\ station\ data\ to\ file}}
-\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}})\ \{}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Find\ station\ closest\ to\ you."{}}))\ \{}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ locJson;}
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lat;}
-\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lon;}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(\mbox{\hyperlink{classmyApp_ad108a4bd45fb52c30282e1b44036845a}{geolocationUrl}},\ locJson))\ \{}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Json::Value\ root;}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(locJson,\ root))\ \{}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lat\ =\ root[\textcolor{stringliteral}{"{}lat"{}}].asDouble();}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lon\ =\ root[\textcolor{stringliteral}{"{}lon"{}}].asDouble();}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a9339a0a3f169d3b455fd0a53109d3efc}{selectNearestStation}}(\mbox{\hyperlink{classGegr}{Gegr}}(lat,\ lon));}
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ functionalUrl\ =\ \mbox{\hyperlink{classmyApp_adb50e32b8ede7ed7a5a6075052adf8d6}{sensorsUrlRoot}}\ +\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a5534d716730a4ebb674521f16ffc1921}{ids}}[\mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}}];}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(functionalUrl,\ \mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}}))\ \{}
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}\ =\ \mbox{\hyperlink{classSensorList}{SensorList}}(\mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}});}
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ currentSensorList.names[0]\ <<\ endl;}}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ sensorListJson\ <<\ endl;}}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}{AppState::SENSOR\_MENU}};}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00179\ \ \ \ \ \}}
-\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Combo(\textcolor{stringliteral}{"{}Choose\ a\ station."{}},\ \&\mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}},\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a4f810a5ae1edc17929d51e0d577324bd}{c\_strNames}}.data(),\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a4f810a5ae1edc17929d51e0d577324bd}{c\_strNames}}.size()))\ \{}
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ something\ is\ chosen}}
-\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//station\ list\ prepares\ json\ value\ in\ case\ of\ save}}
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ "{}requesting"{}\ <<\ currentStationList.ids[currentStationList.index]\ <<\ endl;}}
-\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}})\ \{}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ functionalUrl\ =\ \mbox{\hyperlink{classmyApp_adb50e32b8ede7ed7a5a6075052adf8d6}{sensorsUrlRoot}}\ +\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a5534d716730a4ebb674521f16ffc1921}{ids}}[\mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}}];}
-\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ functionalUrl\ <<\ endl;}}
-\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(functionalUrl,\ \mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}}))\ \{}
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}\ =\ \mbox{\hyperlink{classSensorList}{SensorList}}(\mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}});}
-\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ currentSensorList.names[0]\ <<\ endl;}}
-\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ sensorListJson\ <<\ endl;}}
-\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}{AppState::SENSOR\_MENU}};}
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//loads\ sensors\ from\ file,\ creates\ object}}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//set\ sensors\ array}}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{comment}{//next\ state}}
-\DoxyCodeLine{00202\ \ \ \ \ \}}
-\DoxyCodeLine{00203\ \}}
-\DoxyCodeLine{00204\ }
-\DoxyCodeLine{00205\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}{myApp::showSensorMenu}}()\ \{\ \textcolor{comment}{//consider\ checking\ if\ currentSensorList\ is\ actually\ set\ up}}
-\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{//show\ combo\ based\ on\ sensor\ list\ object}}
-\DoxyCodeLine{00207\ \ \ \ \ \textcolor{comment}{//if\ something\ is\ chosen}}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Combo(\textcolor{stringliteral}{"{}Choose\ sensor"{}},\ \&\mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}},\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_acdae332e5c2b4d3d8856eff32564b738}{c\_strNames}}.data(),\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_acdae332e5c2b4d3d8856eff32564b738}{c\_strNames}}.size()))\ \{}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}})\ \{}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ functionalUrl\ =\ \mbox{\hyperlink{classmyApp_aab051ab584056f24efeab5393c293980}{readingUrlRoot}}\ +\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}{ids}}[\mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}}];}
-\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(functionalUrl,\ \mbox{\hyperlink{classmyApp_a2cb7b609c520cef919f1c2b9494136af}{readingJson}}))\ \{}
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}\ =\ \mbox{\hyperlink{classReading}{Reading}}(\mbox{\hyperlink{classmyApp_a2cb7b609c520cef919f1c2b9494136af}{readingJson}},\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}{ids}}[\mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}}]);}
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}{AppState::READING\_VIEW}};}
-\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//load\ readings\ from\ file}}
-\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00223\ \ \ \ \ \}}
-\DoxyCodeLine{00224\ \}}
-\DoxyCodeLine{00225\ }
-\DoxyCodeLine{00226\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a95ccb2886332332807e10bf3097f2d6f}{myApp::showReadingScreen}}()\ \{}
-\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImPlot::BeginPlot(\textcolor{stringliteral}{"{}\#\#Reading\ from\ sensor"{}}))\ \{}
-\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ autoFitAxes\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ ImGui::Checkbox(\textcolor{stringliteral}{"{}Fit\ axes"{}},\ \&autoFitAxes);}
-\DoxyCodeLine{00230\ }
-\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (autoFitAxes)\ \{}
-\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ ImPlot::SetupAxes(\textcolor{stringliteral}{"{}Time"{}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a10be2eee62ddd1062719b2eb87ae78b7}{paramName}}.c\_str(),}
-\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImPlotAxisFlags\_AutoFit,\ ImPlotAxisFlags\_AutoFit);}
-\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImPlot::SetupAxes(\textcolor{stringliteral}{"{}Time"{}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a10be2eee62ddd1062719b2eb87ae78b7}{paramName}}.c\_str());}
-\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ ImPlot::SetupAxisScale(ImAxis\_X1,\ ImPlotScale\_Time);}
-\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ ImPlot::SetupAxisFormat(ImAxis\_X1,\ \textcolor{stringliteral}{"{}\%H:\%M\(\backslash\)n\%m-\/\%d"{}});}
-\DoxyCodeLine{00240\ \ \ \ \ }
-\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ ImPlot::PlotLine(\mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a10be2eee62ddd1062719b2eb87ae78b7}{paramName}}.c\_str(),}
-\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_ae7569864112eb037d3500340ed9498c0}{dateTimestamps}}.data(),}
-\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.data(),}
-\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.size()));}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00246\ }
-\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ ImGui::Separator();}
-\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Average:\ \%.2f"{}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a9135a08bb39a71da9c34e6aa89c3b339}{average}});}
-\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Max\ value:\ \%.2f\ at\ \%s"{}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a37137f73e4d6e1632bd9c353d7201656}{max}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_aba3fc716cea65e172a4fd3fb35108c70}{maxTime}}.c\_str());}
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Min\ value\ (non-\/zero):\ \%.2f\ at\ \%s"{}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_aff986077658c4a3674f73b7bea38cd39}{min}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a9223034f72914c8b505b3a7e2e940e3f}{minTime}}.c\_str());}
-\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ ImGui::Separator();}
-\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ ImPlot::EndPlot();}
-\DoxyCodeLine{00253\ \ \ \ \ \}}
-\DoxyCodeLine{00254\ \ \ \ \ }
-\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}})\ \{}
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Save"{}}))\ \{}
-\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a49982869d2c7f789c288924856d9d10a}{saveData}}(\mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{projectRoot}});}
-\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00259\ \ \ \ \ \}}
-\DoxyCodeLine{00260\ \}}
-\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Offline\ Mode"{}}))\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ stationFilePath\ =\ \mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{projectRoot}}\ +\ \textcolor{stringliteral}{"{}/saves/stations.json"{}};}
+\DoxyCodeLine{00120\ \ \ \ \ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::filesystem::exists(stationFilePath))\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{stationListJson}}\ =\ \mbox{\hyperlink{utilities_8h_a682cbbdd25ab4fdc0e028a1936a76567}{readStringFromFile}}(stationFilePath);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}\ =\ \mbox{\hyperlink{classStationList}{StationList}}(\mbox{\hyperlink{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}{stationListJson}});}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{AppState::STATION\_MENU}};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{errorMessage}}\ =\ \textcolor{stringliteral}{"{}Couldn't\ find\ station\ file!"{}};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad}{showError}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}})\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{AppState::STATION\_MENU}}:\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{showStationMenu}}();}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}{AppState::SENSOR\_MENU}}:\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{showStationMenu}}();}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}{showSensorMenu}}();}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}{AppState::READING\_VIEW}}:\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{showStationMenu}}();}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}{showSensorMenu}}();}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}}:\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Text(\mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{errorMessage}});}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_aae693ab1f1de6aaa60951e196d1c1a50}{StartUp}}();}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad}{showError}})\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a2ec5af06fce1fa5164f75e71c44dec64}{showErrorWindow}}();}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ ==\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}{AppState::READING\_VIEW}})\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Readings\ from\ sensor"{}});}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a95ccb2886332332807e10bf3097f2d6f}{showReadingScreen}}();}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a2ec5af06fce1fa5164f75e71c44dec64}{showErrorWindow}}()\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Warning."{}});}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ ImGui::Text(\mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{errorMessage}});}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Ok."{}}))\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad}{showError}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{errorMessage}}\ =\ \textcolor{stringliteral}{"{}No\ errors\ yet!"{}};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{00183\ \ \ \ \ \};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{showStationMenu}}();}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}{showSensorMenu}}();}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a95ccb2886332332807e10bf3097f2d6f}{showReadingScreen}}();}
+\DoxyCodeLine{00188\ \};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{myApp::showStationMenu}}()\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}})\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Find\ station\ closest\ to\ you."{}}))\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ locJson;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lat;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lon;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(\mbox{\hyperlink{classmyApp_ad108a4bd45fb52c30282e1b44036845a}{geolocationUrl}},\ locJson))\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Json::Value\ root;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_a5eb5f4ad50a828663bc37dab369102e1}{parseJsonResponse}}(locJson,\ root))\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lat\ =\ root[\textcolor{stringliteral}{"{}lat"{}}].asDouble();}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lon\ =\ root[\textcolor{stringliteral}{"{}lon"{}}].asDouble();}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a9339a0a3f169d3b455fd0a53109d3efc}{selectNearestStation}}(\mbox{\hyperlink{classGegr}{Gegr}}(lat,\ lon));}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ functionalUrl\ =\ \mbox{\hyperlink{classmyApp_adb50e32b8ede7ed7a5a6075052adf8d6}{sensorsUrlRoot}}\ +\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a5534d716730a4ebb674521f16ffc1921}{ids}}[\mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}}];}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(functionalUrl,\ \mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}}))\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}\ =\ \mbox{\hyperlink{classSensorList}{SensorList}}(\mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}});}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}{AppState::SENSOR\_MENU}};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Combo(\textcolor{stringliteral}{"{}Choose\ a\ station."{}},\ \&\mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}},\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a4f810a5ae1edc17929d51e0d577324bd}{c\_strNames}}.data(),\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a4f810a5ae1edc17929d51e0d577324bd}{c\_strNames}}.size()))\ \{}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}})\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ functionalUrl\ =\ \mbox{\hyperlink{classmyApp_adb50e32b8ede7ed7a5a6075052adf8d6}{sensorsUrlRoot}}\ +\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a5534d716730a4ebb674521f16ffc1921}{ids}}[\mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}}];}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ functionalUrl\ <<\ endl;}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(functionalUrl,\ \mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}}))\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}\ =\ \mbox{\hyperlink{classSensorList}{SensorList}}(\mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}});}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ currentSensorList.names[0]\ <<\ endl;}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ sensorListJson\ <<\ endl;}}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}{AppState::SENSOR\_MENU}};}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{errorMessage}}\ =\ \textcolor{stringliteral}{"{}Couldn't\ request\ sensors\ from\ API!\ Going\ into\ offline\ mode..."{}};}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad}{showError}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ sensorFilePath\ =\ \mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{projectRoot}}\ +\ \textcolor{stringliteral}{"{}/saves/sensors/s"{}}\ +\ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a5534d716730a4ebb674521f16ffc1921}{ids}}[\mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}}]\ +\ \textcolor{stringliteral}{"{}.json"{}};}
+\DoxyCodeLine{00236\ \ \ \ \ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::filesystem::exists(sensorFilePath))\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}}\ =\ \mbox{\hyperlink{utilities_8h_a682cbbdd25ab4fdc0e028a1936a76567}{readStringFromFile}}(sensorFilePath);}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}\ =\ \mbox{\hyperlink{classSensorList}{SensorList}}(\mbox{\hyperlink{classmyApp_a5957e8c89caf673ef5c3c994c6459f1a}{sensorListJson}});}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fab7ada5fbe47816ec906359ae8fb5cd0f}{AppState::SENSOR\_MENU}};}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{comment}{//set\ sensors\ array}}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{comment}{//next\ state}}
+\DoxyCodeLine{00248\ \ \ \ \ \}}
+\DoxyCodeLine{00249\ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}{myApp::showSensorMenu}}()\ \{\ \textcolor{comment}{//consider\ checking\ if\ currentSensorList\ is\ actually\ set\ up}}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{comment}{//show\ combo\ based\ on\ sensor\ list\ object}}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{comment}{//if\ something\ is\ chosen}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Combo(\textcolor{stringliteral}{"{}Choose\ sensor"{}},\ \&\mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}},\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_acdae332e5c2b4d3d8856eff32564b738}{c\_strNames}}.data(),\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_acdae332e5c2b4d3d8856eff32564b738}{c\_strNames}}.size()))\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}})\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ functionalUrl\ =\ \mbox{\hyperlink{classmyApp_aab051ab584056f24efeab5393c293980}{readingUrlRoot}}\ +\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}{ids}}[\mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}}];}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{utilities_8h_af990b2e9ea8140909bd46b63bc88695b}{performCurlRequest}}(functionalUrl,\ \mbox{\hyperlink{classmyApp_a2cb7b609c520cef919f1c2b9494136af}{readingJson}}))\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//cerr\ <<\ functionalUrl\ <<\ endl;}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}\ =\ \mbox{\hyperlink{classReading}{Reading}}(\mbox{\hyperlink{classmyApp_a2cb7b609c520cef919f1c2b9494136af}{readingJson}},\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}{ids}}[\mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}}]);}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}{AppState::READING\_VIEW}};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{errorMessage}}\ =\ \textcolor{stringliteral}{"{}Couldn't\ request\ readings\ from\ API!\ Going\ into\ Offline\ Mode..."{}};}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad}{showError}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ readingFilePath\ =\ \mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{projectRoot}}\ +\ \textcolor{stringliteral}{"{}/saves/readings/r"{}}\ +\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}{ids}}[\mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}}]\ +\ \textcolor{stringliteral}{"{}.json"{}};}
+\DoxyCodeLine{00271\ \ \ \ \ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::filesystem::exists(readingFilePath))\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a2cb7b609c520cef919f1c2b9494136af}{readingJson}}\ =\ \mbox{\hyperlink{utilities_8h_a682cbbdd25ab4fdc0e028a1936a76567}{readStringFromFile}}(readingFilePath);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}\ =\ \mbox{\hyperlink{classReading}{Reading}}(\mbox{\hyperlink{classmyApp_a2cb7b609c520cef919f1c2b9494136af}{readingJson}},\ \mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_a98e500ddf8f505fd1fa957e9210bc533}{ids}}[\mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_aa270832f85237bf64328ae07c5a98bb2}{index}}]);}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa17a6b69e30d9398e7d23e255efae8167}{AppState::READING\_VIEW}};}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{appState}}\ =\ \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa5e6a8de74c8f7d4b04d91a3dc3bf7659}{AppState::INVALID\_STATE}};}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00281\ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmyApp_a95ccb2886332332807e10bf3097f2d6f}{myApp::showReadingScreen}}()\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImPlot::BeginPlot(\textcolor{stringliteral}{"{}\#\#Reading\ from\ sensor"{}}))\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ autoFitAxes\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ ImGui::Checkbox(\textcolor{stringliteral}{"{}Fit\ axes"{}},\ \&autoFitAxes);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (autoFitAxes)\ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ ImPlot::SetupAxes(\textcolor{stringliteral}{"{}Time"{}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a10be2eee62ddd1062719b2eb87ae78b7}{paramName}}.c\_str(),}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImPlotAxisFlags\_AutoFit,\ ImPlotAxisFlags\_AutoFit);}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImPlot::SetupAxes(\textcolor{stringliteral}{"{}Time"{}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a10be2eee62ddd1062719b2eb87ae78b7}{paramName}}.c\_str());}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ ImPlot::SetupAxisScale(ImAxis\_X1,\ ImPlotScale\_Time);}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ ImPlot::SetupAxisFormat(ImAxis\_X1,\ \textcolor{stringliteral}{"{}\%H:\%M\(\backslash\)n\%m-\/\%d"{}});}
+\DoxyCodeLine{00298\ \ \ \ \ }
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ ImPlot::PlotLine(\mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a10be2eee62ddd1062719b2eb87ae78b7}{paramName}}.c\_str(),}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_ae7569864112eb037d3500340ed9498c0}{dateTimestamps}}.data(),}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.data(),}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a3ff8261cfa5ba880fc036b13eb8d2601}{values}}.size()));}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ ImGui::Separator();}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Average:\ \%.2f"{}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a9135a08bb39a71da9c34e6aa89c3b339}{average}});}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Max\ value:\ \%.2f\ at\ \%s"{}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a37137f73e4d6e1632bd9c353d7201656}{max}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_aba3fc716cea65e172a4fd3fb35108c70}{maxTime}}.c\_str());}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Min\ value\ (non-\/zero):\ \%.2f\ at\ \%s"{}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_aff986077658c4a3674f73b7bea38cd39}{min}},\ \mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a9223034f72914c8b505b3a7e2e940e3f}{minTime}}.c\_str());}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ ImGui::Separator();}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ ImPlot::EndPlot();}
+\DoxyCodeLine{00311\ \ \ \ \ \}}
+\DoxyCodeLine{00312\ \ \ \ \ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}})\ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Save"{}}))\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a811c3d2ced23f0fedaf534d14641e7f8}{currentReading}}.\mbox{\hyperlink{classReading_a49982869d2c7f789c288924856d9d10a}{saveData}}(\mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{projectRoot}}))\ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classmyApp_a90b0d9da548b9d2b9cd1f336538915fc}{currentSensorList}}.\mbox{\hyperlink{classSensorList_aac56ffef479cb1423a3401ecb3a8547d}{saveData}}(\mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{projectRoot}}))\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a87dc551a1d50e5ee553520f889fe4781}{currentStationList}}.\mbox{\hyperlink{classStationList_ab949e9e5635a78a03960b04324658e70}{saveData}}(\mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{projectRoot}});}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{errorMessage}}\ =\ \textcolor{stringliteral}{"{}Saved\ successfully!"{}};}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad}{showError}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00323\ \ \ \ \ \}}
+\DoxyCodeLine{00324\ \}}
+\DoxyCodeLine{00325\ }
 
 \end{DoxyCode}

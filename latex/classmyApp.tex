@@ -35,6 +35,8 @@ void \mbox{\hyperlink{classmyApp_aae693ab1f1de6aaa60951e196d1c1a50}{Start\+Up}} 
 \begin{DoxyCompactList}\small\item\em mainly used to check if REST API is reachable. Switches app to Offline mode when there is problems with connection. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classmyApp_a87910811149ef621b1368bda62826890}{Update}} ()
 \item 
+void \mbox{\hyperlink{classmyApp_a2ec5af06fce1fa5164f75e71c44dec64}{show\+Error\+Window}} ()
+\item 
 void \mbox{\hyperlink{classmyApp_aee564fded738e7601bb535523ffda881}{show\+Station\+Menu}} ()
 \item 
 void \mbox{\hyperlink{classmyApp_a7ba621c8b96aa68c1563b77f55f43aa1}{show\+Sensor\+Menu}} ()
@@ -61,6 +63,8 @@ const string \mbox{\hyperlink{classmyApp_ab9a712b89f521c17d54954549d6d800e}{proj
 \begin{DoxyCompactList}\small\item\em This loads up the project root path. \end{DoxyCompactList}\item 
 const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classmyApp_af512032ae5730c4cf1b58c0ab57a0f43}{error\+Message}} = "{}No errors yet"{}
 \begin{DoxyCompactList}\small\item\em latest error always stored in here \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad}{show\+Error}} = false
+\item 
 bool \mbox{\hyperlink{classmyApp_a084e07d9dd5c01a0a5fa312b44a1323d}{online}} = false
 \begin{DoxyCompactList}\small\item\em Flag which determines whether json-\/formatted strings are acquired by API request or from file. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530f}{App\+State}} \mbox{\hyperlink{classmyApp_a049b6247c8a39de1f226484bb948ec63}{app\+State}} = \mbox{\hyperlink{classmyApp_ace14ce2f851c51e469c00f1ff36e530fa1559797830c5b1203b064f3baf2eaf41}{App\+State\+::\+STATION\+\_\+\+MENU}}
@@ -150,6 +154,12 @@ INVALID\+\_\+\+STATE&\\
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classmyApp_a2ec5af06fce1fa5164f75e71c44dec64}\label{classmyApp_a2ec5af06fce1fa5164f75e71c44dec64} 
+\index{myApp@{myApp}!showErrorWindow@{showErrorWindow}}
+\index{showErrorWindow@{showErrorWindow}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{showErrorWindow()}{showErrorWindow()}}
+{\footnotesize\ttfamily void my\+App\+::show\+Error\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \Hypertarget{classmyApp_a95ccb2886332332807e10bf3097f2d6f}\label{classmyApp_a95ccb2886332332807e10bf3097f2d6f} 
 \index{myApp@{myApp}!showReadingScreen@{showReadingScreen}}
 \index{showReadingScreen@{showReadingScreen}!myApp@{myApp}}
@@ -270,6 +280,12 @@ This loads up the project root path.
 \index{sensorsUrlRoot@{sensorsUrlRoot}!myApp@{myApp}}
 \doxysubsubsection{\texorpdfstring{sensorsUrlRoot}{sensorsUrlRoot}}
 {\footnotesize\ttfamily const string my\+App\+::sensors\+Url\+Root = "{}https\+://api.\+gios.\+gov.\+pl/pjp-\/api/rest/station/sensors/"{}}
+
+\Hypertarget{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad}\label{classmyApp_a6bc256c7a77b8c8f9c358d8b3bf15fad} 
+\index{myApp@{myApp}!showError@{showError}}
+\index{showError@{showError}!myApp@{myApp}}
+\doxysubsubsection{\texorpdfstring{showError}{showError}}
+{\footnotesize\ttfamily bool my\+App\+::show\+Error = false}
 
 \Hypertarget{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207}\label{classmyApp_a6afd3f20cb3b5c2ecaa0b83a03510207} 
 \index{myApp@{myApp}!stationListJson@{stationListJson}}

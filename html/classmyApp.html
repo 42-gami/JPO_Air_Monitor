@@ -115,6 +115,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aae693ab1f1de6aaa60951e196d1c1a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87910811149ef621b1368bda62826890" id="r_a87910811149ef621b1368bda62826890"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87910811149ef621b1368bda62826890">Update</a> ()</td></tr>
 <tr class="separator:a87910811149ef621b1368bda62826890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ec5af06fce1fa5164f75e71c44dec64" id="r_a2ec5af06fce1fa5164f75e71c44dec64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ec5af06fce1fa5164f75e71c44dec64">showErrorWindow</a> ()</td></tr>
+<tr class="separator:a2ec5af06fce1fa5164f75e71c44dec64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee564fded738e7601bb535523ffda881" id="r_aee564fded738e7601bb535523ffda881"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee564fded738e7601bb535523ffda881">showStationMenu</a> ()</td></tr>
 <tr class="separator:aee564fded738e7601bb535523ffda881"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ba621c8b96aa68c1563b77f55f43aa1" id="r_a7ba621c8b96aa68c1563b77f55f43aa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ba621c8b96aa68c1563b77f55f43aa1">showSensorMenu</a> ()</td></tr>
@@ -141,6 +143,8 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:af512032ae5730c4cf1b58c0ab57a0f43" id="r_af512032ae5730c4cf1b58c0ab57a0f43"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af512032ae5730c4cf1b58c0ab57a0f43">errorMessage</a> = &quot;No errors yet&quot;</td></tr>
 <tr class="memdesc:af512032ae5730c4cf1b58c0ab57a0f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">latest error always stored in here  <br /></td></tr>
 <tr class="separator:af512032ae5730c4cf1b58c0ab57a0f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bc256c7a77b8c8f9c358d8b3bf15fad" id="r_a6bc256c7a77b8c8f9c358d8b3bf15fad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bc256c7a77b8c8f9c358d8b3bf15fad">showError</a> = false</td></tr>
+<tr class="separator:a6bc256c7a77b8c8f9c358d8b3bf15fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a084e07d9dd5c01a0a5fa312b44a1323d" id="r_a084e07d9dd5c01a0a5fa312b44a1323d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a084e07d9dd5c01a0a5fa312b44a1323d">online</a> = false</td></tr>
 <tr class="memdesc:a084e07d9dd5c01a0a5fa312b44a1323d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag which determines whether json-formatted strings are acquired by API request or from file.  <br /></td></tr>
 <tr class="separator:a084e07d9dd5c01a0a5fa312b44a1323d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -261,6 +265,31 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2ec5af06fce1fa5164f75e71c44dec64" name="a2ec5af06fce1fa5164f75e71c44dec64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ec5af06fce1fa5164f75e71c44dec64">&#9670;&#160;</a></span>showErrorWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void myApp::showErrorWindow </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a95ccb2886332332807e10bf3097f2d6f" name="a95ccb2886332332807e10bf3097f2d6f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95ccb2886332332807e10bf3097f2d6f">&#9670;&#160;</a></span>showReadingScreen()</h2>
 
@@ -533,6 +562,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">const string myApp::sensorsUrlRoot = &quot;https://api.gios.gov.pl/pjp-api/rest/station/sensors/&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6bc256c7a77b8c8f9c358d8b3bf15fad" name="a6bc256c7a77b8c8f9c358d8b3bf15fad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bc256c7a77b8c8f9c358d8b3bf15fad">&#9670;&#160;</a></span>showError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool myApp::showError = false</td>
         </tr>
       </table>
 </div><div class="memdoc">

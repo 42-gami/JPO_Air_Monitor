@@ -52,5 +52,23 @@
 		"gegrLon" : "14.663347",
 		"id" : 986,
 		"stationName" : "Szczecin, ul. Andrzejewskiego"
+	},
+	{
+		"addressStreet" : "ul. D\u0105browskiego 169",
+		"city" : 
+		{
+			"commune" : 
+			{
+				"communeName" : "Pozna\u0144",
+				"districtName" : "Pozna\u0144",
+				"provinceName" : "WIELKOPOLSKIE"
+			},
+			"id" : 729,
+			"name" : "Pozna\u0144"
+		},
+		"gegrLat" : "52.420319",
+		"gegrLon" : "16.877289",
+		"id" : 944,
+		"stationName" : "Pozna\u0144, ul. D\u0105browskiego"
 	}
 ]

@@ -14,26 +14,28 @@ Class used for converting data about stations into formats later passed to the G
 \item 
 \mbox{\hyperlink{classStationList_a03f3dd9007bd7b975f9900de496955df}{Station\+List}} ()
 \item 
-\mbox{\hyperlink{classStationList_a3d123b9ae1f97e18e1143a87aea77247}{Station\+List}} (string json\+String)
+\mbox{\hyperlink{classStationList_a3d123b9ae1f97e18e1143a87aea77247}{Station\+List}} (\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{string}} \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{json\+String}})
 \item 
-bool \mbox{\hyperlink{classStationList_a7d77ce19fe4637df8ec63fe0d288e2a0}{load\+Data}} (string json\+String)
+\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{bool}} \mbox{\hyperlink{classStationList_a7d77ce19fe4637df8ec63fe0d288e2a0}{load\+Data}} (\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{string}} \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{json\+String}})
 \item 
-void \mbox{\hyperlink{classStationList_a30404971f26c94a0c6d1dee52c567b7a}{prepare\+CStr\+Names}} ()
+\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{void}} \mbox{\hyperlink{classStationList_a30404971f26c94a0c6d1dee52c567b7a}{prepare\+CStr\+Names}} ()
 \item 
-void \mbox{\hyperlink{classStationList_a9339a0a3f169d3b455fd0a53109d3efc}{select\+Nearest\+Station}} (\mbox{\hyperlink{classGegr}{Gegr}} my\+Loc=\mbox{\hyperlink{classGegr}{Gegr}}(50.\+0, 16.\+0))
+\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{void}} \mbox{\hyperlink{classStationList_a9339a0a3f169d3b455fd0a53109d3efc}{select\+Nearest\+Station}} (\mbox{\hyperlink{classGegr}{Gegr}} \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{my\+Loc}}=\mbox{\hyperlink{classGegr}{Gegr}}(50.\+0, 16.\+0))
+\item 
+\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{void}} \mbox{\hyperlink{classStationList_ab949e9e5635a78a03960b04324658e70}{save\+Data}} (\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{string}} project\+Root)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-vector$<$ string $>$ \mbox{\hyperlink{classStationList_a643d47deb5650b5afd55c07270c8e2f4}{names}}
+\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{vector}}$<$ \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{string}} $>$ \mbox{\hyperlink{classStationList_a643d47deb5650b5afd55c07270c8e2f4}{names}}
 \item 
-vector$<$ const char \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classStationList_a4f810a5ae1edc17929d51e0d577324bd}{c\+\_\+str\+Names}}
+\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{vector}}$<$ \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{const}} \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{char}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classStationList_a4f810a5ae1edc17929d51e0d577324bd}{c\+\_\+str\+Names}}
 \begin{DoxyCompactList}\small\item\em Necessary for displaying in Im\+Gui. Automatically created based on the std\+::string names. \end{DoxyCompactList}\item 
-vector$<$ string $>$ \mbox{\hyperlink{classStationList_a5534d716730a4ebb674521f16ffc1921}{ids}}
+\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{vector}}$<$ \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{string}} $>$ \mbox{\hyperlink{classStationList_a5534d716730a4ebb674521f16ffc1921}{ids}}
 \item 
-vector$<$ \mbox{\hyperlink{classGegr}{Gegr}} $>$ \mbox{\hyperlink{classStationList_aba41f1360357afb0abd0dc57489e8f04}{locations}}
+\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{vector}}$<$ \mbox{\hyperlink{classGegr}{Gegr}} $>$ \mbox{\hyperlink{classStationList_aba41f1360357afb0abd0dc57489e8f04}{locations}}
 \item 
-vector$<$ Json\+::\+Value $>$ \mbox{\hyperlink{classStationList_a490a3da91200eac1dc22cb9c29823c54}{json\+Data}}
+\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{vector}}$<$ Json\+::\+Value $>$ \mbox{\hyperlink{classStationList_a490a3da91200eac1dc22cb9c29823c54}{json\+Data}}
 \item 
 int \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{index}} = -\/1
 \end{DoxyCompactItemize}
@@ -53,7 +55,7 @@ Class used for converting data about stations into formats later passed to the G
 \index{StationList@{StationList}!StationList@{StationList}}
 \index{StationList@{StationList}!StationList@{StationList}}
 \doxysubsubsection{\texorpdfstring{StationList()}{StationList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Station\+List\+::\+Station\+List (\begin{DoxyParamCaption}\item[{string}]{json\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Station\+List\+::\+Station\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{string}}}]{json\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -62,19 +64,25 @@ Class used for converting data about stations into formats later passed to the G
 \index{StationList@{StationList}!loadData@{loadData}}
 \index{loadData@{loadData}!StationList@{StationList}}
 \doxysubsubsection{\texorpdfstring{loadData()}{loadData()}}
-{\footnotesize\ttfamily bool Station\+List\+::load\+Data (\begin{DoxyParamCaption}\item[{string}]{json\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{bool}} Station\+List\+::load\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{string}}}]{json\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classStationList_a30404971f26c94a0c6d1dee52c567b7a}\label{classStationList_a30404971f26c94a0c6d1dee52c567b7a} 
 \index{StationList@{StationList}!prepareCStrNames@{prepareCStrNames}}
 \index{prepareCStrNames@{prepareCStrNames}!StationList@{StationList}}
 \doxysubsubsection{\texorpdfstring{prepareCStrNames()}{prepareCStrNames()}}
-{\footnotesize\ttfamily void Station\+List\+::prepare\+CStr\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{void}} Station\+List\+::prepare\+CStr\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classStationList_ab949e9e5635a78a03960b04324658e70}\label{classStationList_ab949e9e5635a78a03960b04324658e70} 
+\index{StationList@{StationList}!saveData@{saveData}}
+\index{saveData@{saveData}!StationList@{StationList}}
+\doxysubsubsection{\texorpdfstring{saveData()}{saveData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{void}} Station\+List\+::save\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{string}}}]{project\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classStationList_a9339a0a3f169d3b455fd0a53109d3efc}\label{classStationList_a9339a0a3f169d3b455fd0a53109d3efc} 
 \index{StationList@{StationList}!selectNearestStation@{selectNearestStation}}
 \index{selectNearestStation@{selectNearestStation}!StationList@{StationList}}
 \doxysubsubsection{\texorpdfstring{selectNearestStation()}{selectNearestStation()}}
-{\footnotesize\ttfamily void Station\+List\+::select\+Nearest\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGegr}{Gegr}}}]{my\+Loc = {\ttfamily \mbox{\hyperlink{classGegr}{Gegr}}(50.0,~16.0)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{void}} Station\+List\+::select\+Nearest\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGegr}{Gegr}}}]{my\+Loc = {\ttfamily \mbox{\hyperlink{classGegr}{Gegr}}(50.0,~16.0)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -83,7 +91,7 @@ Class used for converting data about stations into formats later passed to the G
 \index{StationList@{StationList}!c\_strNames@{c\_strNames}}
 \index{c\_strNames@{c\_strNames}!StationList@{StationList}}
 \doxysubsubsection{\texorpdfstring{c\_strNames}{c\_strNames}}
-{\footnotesize\ttfamily vector$<$const char\texorpdfstring{$\ast$}{*}$>$ Station\+List\+::c\+\_\+str\+Names}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{vector}}$<$\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{const}} \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{char}}\texorpdfstring{$\ast$}{*}$>$ Station\+List\+::c\+\_\+str\+Names}
 
 
 
@@ -93,7 +101,7 @@ Necessary for displaying in Im\+Gui. Automatically created based on the std\+::s
 \index{StationList@{StationList}!ids@{ids}}
 \index{ids@{ids}!StationList@{StationList}}
 \doxysubsubsection{\texorpdfstring{ids}{ids}}
-{\footnotesize\ttfamily vector$<$string$>$ Station\+List\+::ids}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{vector}}$<$\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{string}}$>$ Station\+List\+::ids}
 
 \Hypertarget{classStationList_a72eb1f689c013e70d01784be47283275}\label{classStationList_a72eb1f689c013e70d01784be47283275} 
 \index{StationList@{StationList}!index@{index}}
@@ -105,19 +113,19 @@ Necessary for displaying in Im\+Gui. Automatically created based on the std\+::s
 \index{StationList@{StationList}!jsonData@{jsonData}}
 \index{jsonData@{jsonData}!StationList@{StationList}}
 \doxysubsubsection{\texorpdfstring{jsonData}{jsonData}}
-{\footnotesize\ttfamily vector$<$Json\+::\+Value$>$ Station\+List\+::json\+Data}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{vector}}$<$Json\+::\+Value$>$ Station\+List\+::json\+Data}
 
 \Hypertarget{classStationList_aba41f1360357afb0abd0dc57489e8f04}\label{classStationList_aba41f1360357afb0abd0dc57489e8f04} 
 \index{StationList@{StationList}!locations@{locations}}
 \index{locations@{locations}!StationList@{StationList}}
 \doxysubsubsection{\texorpdfstring{locations}{locations}}
-{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classGegr}{Gegr}}$>$ Station\+List\+::locations}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{vector}}$<$\mbox{\hyperlink{classGegr}{Gegr}}$>$ Station\+List\+::locations}
 
 \Hypertarget{classStationList_a643d47deb5650b5afd55c07270c8e2f4}\label{classStationList_a643d47deb5650b5afd55c07270c8e2f4} 
 \index{StationList@{StationList}!names@{names}}
 \index{names@{names}!StationList@{StationList}}
 \doxysubsubsection{\texorpdfstring{names}{names}}
-{\footnotesize\ttfamily vector$<$string$>$ Station\+List\+::names}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{vector}}$<$\mbox{\hyperlink{classStationList_a72eb1f689c013e70d01784be47283275}{string}}$>$ Station\+List\+::names}
 
 
 
